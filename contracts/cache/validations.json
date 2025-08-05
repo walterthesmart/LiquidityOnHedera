@@ -2,6 +2,82 @@
   "version": "3.4",
   "log": [
     {
+      "contracts/SimpleTest.sol:SimpleTest": {
+        "src": "contracts\\SimpleTest.sol:8",
+        "version": {
+          "withMetadata": "86cb19e4a30a7917f5dc98bbcd7d609e5a98202796fbdbaa1e1fc2e55875a41b",
+          "withoutMetadata": "4c9649142679fc7e55d3806b6c8a8e53ecb133c2648de73c38e63b5d1525448a",
+          "linkedWithoutMetadata": "4c9649142679fc7e55d3806b6c8a8e53ecb133c2648de73c38e63b5d1525448a"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "(string)",
+          "getMessage()",
+          "setMessage(string)",
+          "getNumber()",
+          "setNumber(uint256)",
+          "getOwner()",
+          "getBlockNumber()",
+          "getTimestamp()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "SimpleTest",
+            "src": "contracts\\SimpleTest.sol:16"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "message",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_string_storage",
+              "contract": "SimpleTest",
+              "src": "contracts\\SimpleTest.sol:9"
+            },
+            {
+              "label": "number",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint256",
+              "contract": "SimpleTest",
+              "src": "contracts\\SimpleTest.sol:10"
+            },
+            {
+              "label": "owner",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_address",
+              "contract": "SimpleTest",
+              "src": "contracts\\SimpleTest.sol:11"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.24"
+      }
+    },
+    {
       "@openzeppelin/contracts/access/AccessControl.sol:AccessControl": {
         "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:49",
         "inherit": [
