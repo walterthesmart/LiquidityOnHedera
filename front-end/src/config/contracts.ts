@@ -71,13 +71,18 @@ export const NETWORK_CONTRACTS: NetworkContracts = {
     tokens: {}
   },
   
-  // Hedera Testnet (Target for deployment)
+  // Hedera Testnet (Deployed!)
   296: {
-    factoryAddress: "", // To be deployed
+    factoryAddress: "0xf867ace8Ed1F51f50EDc2A7DAe477Ac19cdaCF68",
+    ngnStablecoin: "0x4bB9F94c2aBd8fd1BA789f8d7f7174e194330628",
+    stockNGNDEX: "0x0A34513Cec5f80408B3d5d65F7E129A80adDdb59",
+    tradingPairManager: "0xAeB0F58b0F7A01283175eF30BFFF618F872f960e",
     blockExplorer: "https://hashscan.io/testnet",
-    deployedAt: "",
-    totalTokens: 0,
-    tokens: {}
+    deployedAt: "2025-01-08T12:00:00.000Z",
+    totalTokens: 0, // Stock tokens to be deployed individually
+    tokens: {
+      // Stock tokens will be added as they are deployed
+    }
   },
   
   // Hedera Mainnet (Future)

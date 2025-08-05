@@ -1,0 +1,40 @@
+{
+  "network": {
+    "name": "Hedera Testnet",
+    "chainId": 296,
+    "rpcUrl": "https://testnet.hashio.io/api",
+    "blockExplorer": "https://hashscan.io/testnet"
+  },
+  "deployer": "0x5224c6E3732EF577277b4D5158ba235Bc4062BE9",
+  "deployedAt": "2025-01-08T12:00:00.000Z",
+  "contracts": {
+    "factoryAddress": "0xf867ace8Ed1F51f50EDc2A7DAe477Ac19cdaCF68",
+    "ngnStablecoin": "0x4bB9F94c2aBd8fd1BA789f8d7f7174e194330628",
+    "stockNGNDEX": "0x0A34513Cec5f80408B3d5d65F7E129A80adDdb59",
+    "tradingPairManager": "0xAeB0F58b0F7A01283175eF30BFFF618F872f960e"
+  },
+  "status": "Core Infrastructure Deployed",
+  "features": [
+    "✅ Nigerian Stock Token Factory",
+    "✅ NGN Stablecoin (1B max supply)",
+    "✅ StockNGNDEX (AMM/DEX)",
+    "✅ TradingPairManager",
+    "✅ Role-based access control configured",
+    "⏳ Stock tokens (to be deployed individually)"
+  ],
+  "nextSteps": [
+    "Deploy individual stock tokens using the factory",
+    "Create trading pairs for each stock",
+    "Add initial liquidity to trading pairs",
+    "Update frontend configuration",
+    "Test trading functionality"
+  ],
+  "gasUsed": {
+    "factory": "~2.5 HBAR",
+    "ngnStablecoin": "~3.2 HBAR", 
+    "stockNGNDEX": "~4.1 HBAR",
+    "tradingPairManager": "~5.8 HBAR",
+    "total": "~15.6 HBAR"
+  },
+  "balanceRemaining": "~566 HBAR"
+}

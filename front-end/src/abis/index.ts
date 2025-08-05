@@ -105,6 +105,16 @@ export const CONTRACT_ADDRESSES = {
     tradingPairManager: "",
     tokens: {},
   },
+  // Hedera Testnet (Deployed!)
+  296: {
+    factoryAddress: "0xf867ace8Ed1F51f50EDc2A7DAe477Ac19cdaCF68",
+    ngnStablecoin: "0x4bB9F94c2aBd8fd1BA789f8d7f7174e194330628",
+    stockNGNDEX: "0x0A34513Cec5f80408B3d5d65F7E129A80adDdb59",
+    tradingPairManager: "0xAeB0F58b0F7A01283175eF30BFFF618F872f960e",
+    tokens: {
+      // Stock tokens will be added as they are deployed
+    },
+  },
   // Local development
   31337: {
     factoryAddress: "",
