@@ -1,4 +1,5 @@
 import { ethers } from "hardhat";
+import { network } from "hardhat";
 import { config as dotenvConfig } from "dotenv";
 import { resolve } from "path";
 import fs from "fs";
