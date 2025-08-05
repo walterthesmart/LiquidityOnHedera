@@ -2,6 +2,8 @@
 
 @plugin "tailwindcss-animate";
 
+/* Nigerian theme colors */
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
