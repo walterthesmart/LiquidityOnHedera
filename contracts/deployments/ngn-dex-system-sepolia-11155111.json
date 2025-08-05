@@ -1,0 +1,49 @@
+{
+  "network": "Ethereum Sepolia Testnet",
+  "chainId": 11155111,
+  "deployer": "0x5224c6E3732EF577277b4D5158ba235Bc4062BE9",
+  "timestamp": "2025-07-23T14:09:05.508Z",
+  "gasUsed": "9162133",
+  "contracts": {
+    "ngnStablecoin": "0xc6FDE8a6D23B2A0e7f39F90bc5B7c062159e9A36",
+    "stockNGNDEX": "0x1fb6d61A02eF94564e90e14BeACbba17A0C9482a",
+    "tradingPairManager": "0x5b23a4caCE30BFDa4326d784e82A24bA5D8f56b9",
+    "stockFactory": "0xF1098eDaaB7a7D7b3bD42e7DeD9554781dfA625A"
+  },
+  "configuration": {
+    "network": "Ethereum Sepolia Testnet",
+    "chainId": 11155111,
+    "ngnConfig": {
+      "name": "Nigerian Naira Stablecoin",
+      "symbol": "NGN",
+      "maxSupply": "1000000000000000000000000000",
+      "mintingCap": "10000000000000000000000000",
+      "mintingEnabled": true,
+      "burningEnabled": true,
+      "transfersEnabled": true
+    },
+    "dexConfig": {
+      "defaultFeeRate": 30,
+      "maxPriceImpact": 500,
+      "minLiquidity": "1000000000000000000000",
+      "swapDeadline": 1800,
+      "emergencyMode": false
+    },
+    "managerConfig": {
+      "defaultFeeRate": 30,
+      "defaultLiquidityTarget": "100000000000000000000000",
+      "defaultRebalanceThreshold": 1000,
+      "maxPairsPerBatch": 10,
+      "autoLiquidityEnabled": true,
+      "emergencyWithdrawDelay": 86400
+    },
+    "stockTokens": [
+      "0x2EC5d749D0DF8Aa8b1Af4128d0b0Cb76417A8DeE",
+      "0xa19FB869e72ecC01797BcF57B690Ecee3101888A",
+      "0x00b41E1164843E291bB5B496b50E3b143C278016",
+      "0x2f6c483D1ad3659B9b915cA164Fd6BA4089788EE",
+      "0x085b9cD55F29b89362C80429e8C406Cf809625C6"
+    ]
+  },
+  "tradingPairs": []
+}

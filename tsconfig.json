@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "commonjs",
+    "lib": ["es2022"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": "./",
+    "paths": {
+      "@contracts/*": ["contracts/*"],
+      "@backend/*": ["backend/*"],
+      "@frontend/*": ["front-end/*"],
+      "@scripts/*": ["scripts/*"]
+    }
+  },
+  "references": [
+    {
+      "path": "./contracts"
+    },
+    {
+      "path": "./backend"
+    },
+    {
+      "path": "./front-end"
+    }
+  ],
+  "files": [],
+  "include": [],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "artifacts",
+    "cache",
+    "**/node_modules",
+    "**/dist",
+    "**/artifacts",
+    "**/cache"
+  ]
+}

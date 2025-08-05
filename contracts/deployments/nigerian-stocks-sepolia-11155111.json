@@ -1,0 +1,355 @@
+{
+  "network": "sepolia",
+  "chainId": "11155111",
+  "deployer": "0x5224c6E3732EF577277b4D5158ba235Bc4062BE9",
+  "factoryAddress": "0xf867ace8Ed1F51f50EDc2A7DAe477Ac19cdaCF68",
+  "deployedAt": "2025-07-23T13:52:22.973Z",
+  "totalTokens": 39,
+  "totalGasUsed": "95954814",
+  "estimatedCostETH": "0.06764333658345081",
+  "batchSize": 5,
+  "tokens": [
+    {
+      "symbol": "DANGCEM",
+      "name": "Dangote Cement Token",
+      "companyName": "Dangote Cement Plc",
+      "address": "0xc4cB0e9A47FFb17F927c94e590E4D3CCd03B40DB",
+      "maxSupply": "17040000000000000000000000000",
+      "deploymentGas": "2446173",
+      "sector": "Industrial Goods"
+    },
+    {
+      "symbol": "MTNN",
+      "name": "MTN Nigeria Token",
+      "companyName": "MTN Nigeria Communications Plc",
+      "address": "0x26FB154F273Ec41469a4423b9C6828d07CbFc085",
+      "maxSupply": "20354513050000000000000000000",
+      "deploymentGas": "2394957",
+      "sector": "Telecommunications"
+    },
+    {
+      "symbol": "ZENITHBANK",
+      "name": "Zenith Bank Token",
+      "companyName": "Zenith Bank Plc",
+      "address": "0x402F234048d41cB8031aF7B59E9d2Fbfc4BEF678",
+      "maxSupply": "31396493786000000000000000000",
+      "deploymentGas": "2394789",
+      "sector": "Banking"
+    },
+    {
+      "symbol": "GTCO",
+      "name": "Guaranty Trust Token",
+      "companyName": "Guaranty Trust Holding Company Plc",
+      "address": "0x2E323Fc3FdE45b33B3143Db18BBc8c6F5B765183",
+      "maxSupply": "29431127496000000000000000000",
+      "deploymentGas": "2439914",
+      "sector": "Banking"
+    },
+    {
+      "symbol": "NB",
+      "name": "Nigerian Breweries Token",
+      "companyName": "Nigerian Breweries Plc",
+      "address": "0xff7ab2b0FcC6f9E4689a5e5bbDd692bf48eE3FeE",
+      "maxSupply": "8020000000000000000000000000",
+      "deploymentGas": "2394813",
+      "sector": "Consumer Goods"
+    },
+    {
+      "symbol": "ACCESS",
+      "name": "Access Holdings Token",
+      "companyName": "Access Holdings Plc",
+      "address": "0xe17F10218Ff46FA0B2D8F82483eC6D8958B24bC9",
+      "maxSupply": "35687500000000000000000000000",
+      "deploymentGas": "2394777",
+      "sector": "Banking"
+    },
+    {
+      "symbol": "BUACEMENT",
+      "name": "BUA Cement Token",
+      "companyName": "BUA Cement Plc",
+      "address": "0x2d0940D2160248D851601703626d7933DC2b5298",
+      "maxSupply": "16000000000000000000000000000",
+      "deploymentGas": "2394825",
+      "sector": "Industrial Goods"
+    },
+    {
+      "symbol": "AIRTELAFRI",
+      "name": "Airtel Africa Token",
+      "companyName": "Airtel Africa Plc",
+      "address": "0x3A366d23CeFaF01C710894dAFD86009E6bA8E86D",
+      "maxSupply": "3700000000000000000000000000",
+      "deploymentGas": "2394945",
+      "sector": "Telecommunications"
+    },
+    {
+      "symbol": "FBNH",
+      "name": "FBN Holdings Token",
+      "companyName": "FBN Holdings Plc",
+      "address": "0xbE34d21903CEdB7268C1b0BcE9a027812F5EC834",
+      "maxSupply": "35895292792000000000000000000",
+      "deploymentGas": "2394657",
+      "sector": "Banking"
+    },
+    {
+      "symbol": "UBA",
+      "name": "United Bank for Africa Token",
+      "companyName": "United Bank for Africa Plc",
+      "address": "0xf0926AD7B56b65C12Fe1D005d38BD67F6c7C6CBC",
+      "maxSupply": "35130641814000000000000000000",
+      "deploymentGas": "2394873",
+      "sector": "Banking"
+    },
+    {
+      "symbol": "NESTLE",
+      "name": "Nestle Nigeria Token",
+      "companyName": "Nestle Nigeria Plc",
+      "address": "0x78836734F5398375Ea463010c4D1a0c857634D1A",
+      "maxSupply": "1500000000000000000000000000",
+      "deploymentGas": "2394825",
+      "sector": "Consumer Goods"
+    },
+    {
+      "symbol": "SEPLAT",
+      "name": "Seplat Energy Token",
+      "companyName": "Seplat Energy Plc",
+      "address": "0xf0BD07108e4B5B926f219f38E04b0eE6E2E8Ad45",
+      "maxSupply": "5882353000000000000000000000",
+      "deploymentGas": "2394765",
+      "sector": "Oil & Gas"
+    },
+    {
+      "symbol": "STANBIC",
+      "name": "Stanbic IBTC Holdings Token",
+      "companyName": "Stanbic IBTC Holdings Plc",
+      "address": "0xEbcD1b3bB7d9bd171e35bf65a0C14F67E58A225D",
+      "maxSupply": "15557000000000000000000000000",
+      "deploymentGas": "2394921",
+      "sector": "Banking"
+    },
+    {
+      "symbol": "OANDO",
+      "name": "Oando Token",
+      "companyName": "Oando Plc",
+      "address": "0xF384aB95bcf03836e06dEf9e79609d94d9612aDc",
+      "maxSupply": "8000000000000000000000000000",
+      "deploymentGas": "2394513",
+      "sector": "Oil & Gas"
+    },
+    {
+      "symbol": "CONOIL",
+      "name": "Conoil Token",
+      "companyName": "Conoil Plc",
+      "address": "0xD27e008b63bE96FBA40DB046Ca17a944841B2Be2",
+      "maxSupply": "1200000000000000000000000000",
+      "deploymentGas": "2394561",
+      "sector": "Oil & Gas"
+    },
+    {
+      "symbol": "WAPCO",
+      "name": "Lafarge Africa Token (WAPCO)",
+      "companyName": "West African Portland Cement Company",
+      "address": "0xD3A3999200d166b30decd53131D66EEC22D9FC4d",
+      "maxSupply": "17040000000000000000000000000",
+      "deploymentGas": "2440142",
+      "sector": "Industrial Goods"
+    },
+    {
+      "symbol": "FLOURMILL",
+      "name": "Flour Mills of Nigeria Token",
+      "companyName": "Flour Mills of Nigeria Plc",
+      "address": "0xd7A55E1098163e13a5f3B50ED339134bD4658De6",
+      "maxSupply": "39000000000000000000000000000",
+      "deploymentGas": "2395089",
+      "sector": "Consumer Goods"
+    },
+    {
+      "symbol": "PRESCO",
+      "name": "Presco Token",
+      "companyName": "Presco Plc",
+      "address": "0xC7D24f4D51fc9943663191fBa27958fFc5a7a5Aa",
+      "maxSupply": "8000000000000000000000000000",
+      "deploymentGas": "2394585",
+      "sector": "Agriculture"
+    },
+    {
+      "symbol": "CADBURY",
+      "name": "Cadbury Nigeria Token",
+      "companyName": "Cadbury Nigeria Plc",
+      "address": "0x096352CCb386114873A9847e7Ae083603FE4c84B",
+      "maxSupply": "1800000000000000000000000000",
+      "deploymentGas": "2394861",
+      "sector": "Consumer Goods"
+    },
+    {
+      "symbol": "GUINNESS",
+      "name": "Guinness Nigeria Token",
+      "companyName": "Guinness Nigeria Plc",
+      "address": "0x4D20a560da2c7cD407b67FE1f62D2BE142e1DF45",
+      "maxSupply": "2000000000000000000000000000",
+      "deploymentGas": "2394885",
+      "sector": "Consumer Goods"
+    },
+    {
+      "symbol": "INTBREW",
+      "name": "International Breweries Token",
+      "companyName": "International Breweries Plc",
+      "address": "0xd2E3F7fc768E0C32fc7EDdDC5052Fc4E594Ec40F",
+      "maxSupply": "9000000000000000000000000000",
+      "deploymentGas": "2395053",
+      "sector": "Consumer Goods"
+    },
+    {
+      "symbol": "CHAMPION",
+      "name": "Champion Breweries Token",
+      "companyName": "Champion Breweries Plc",
+      "address": "0x8bC8924B95A5459e995C62B6752B6aFd2860a12f",
+      "maxSupply": "2500000000000000000000000000",
+      "deploymentGas": "2394957",
+      "sector": "Consumer Goods"
+    },
+    {
+      "symbol": "UNILEVER",
+      "name": "Unilever Nigeria Token",
+      "companyName": "Unilever Nigeria Plc",
+      "address": "0xa0a2e8D34049c795d2Ccd78cC5bc354a3199e13F",
+      "maxSupply": "6000000000000000000000000000",
+      "deploymentGas": "2394909",
+      "sector": "Consumer Goods"
+    },
+    {
+      "symbol": "TRANSCORP",
+      "name": "Transnational Corporation Token",
+      "companyName": "Transnational Corporation Plc",
+      "address": "0x4af5B35688511E6AFD4738a641Ad87517ef60404",
+      "maxSupply": "40000000000000000000000000000",
+      "deploymentGas": "2395137",
+      "sector": "Conglomerates"
+    },
+    {
+      "symbol": "BUAFOODS",
+      "name": "BUA Foods Token",
+      "companyName": "BUA Foods Plc",
+      "address": "0x3E0edd3A58a13C1421f8C7f646127f801caeE3ED",
+      "maxSupply": "18000000000000000000000000000",
+      "deploymentGas": "2394753",
+      "sector": "Consumer Goods"
+    },
+    {
+      "symbol": "DANGSUGAR",
+      "name": "Dangote Sugar Token",
+      "companyName": "Dangote Sugar Refinery Plc",
+      "address": "0x1A959C4357173dFE5E4ACd373cd4A8e358AeDC09",
+      "maxSupply": "12150000000000000000000000000",
+      "deploymentGas": "2394969",
+      "sector": "Consumer Goods"
+    },
+    {
+      "symbol": "UACN",
+      "name": "UAC of Nigeria Token",
+      "companyName": "UAC of Nigeria Plc",
+      "address": "0xc16A32564BFf3A778087eDd9E1185D9C29d96dC7",
+      "maxSupply": "2925000000000000000000000000",
+      "deploymentGas": "2394765",
+      "sector": "Conglomerates"
+    },
+    {
+      "symbol": "PZ",
+      "name": "PZ Cussons Nigeria Token",
+      "companyName": "PZ Cussons Nigeria Plc",
+      "address": "0x3d9F99f3c479DC6f3d9a1390AadC33aD6b83A707",
+      "maxSupply": "3970000000000000000000000000",
+      "deploymentGas": "2394825",
+      "sector": "Consumer Goods"
+    },
+    {
+      "symbol": "TOTAL",
+      "name": "TotalEnergies Marketing Nigeria Token",
+      "companyName": "TotalEnergies Marketing Nigeria Plc",
+      "address": "0xBb11F71ae636307898F922dbC8793BB4443A6276",
+      "maxSupply": "339500000000000000000000000",
+      "deploymentGas": "2485162",
+      "sector": "Oil & Gas"
+    },
+    {
+      "symbol": "ETERNA",
+      "name": "Eterna Token",
+      "companyName": "Eterna Plc",
+      "address": "0x80E70d7784F4452d3D15E8dFc84E7d9310275a09",
+      "maxSupply": "1305000000000000000000000000",
+      "deploymentGas": "2394561",
+      "sector": "Oil & Gas"
+    },
+    {
+      "symbol": "GEREGU",
+      "name": "Geregu Power Token",
+      "companyName": "Geregu Power Plc",
+      "address": "0x99d76D737847c7079A8B3acFc9420a57bCc72fe7",
+      "maxSupply": "2500000000000000000000000000",
+      "deploymentGas": "2394717",
+      "sector": "Utilities"
+    },
+    {
+      "symbol": "TRANSPOWER",
+      "name": "Transcorp Power Token",
+      "companyName": "Transcorp Power Plc",
+      "address": "0x6b209251003793275e302E7d4512866a86dF26b4",
+      "maxSupply": "7500000000000000000000000000",
+      "deploymentGas": "2394873",
+      "sector": "Utilities"
+    },
+    {
+      "symbol": "FIDSON",
+      "name": "Fidson Healthcare Token",
+      "companyName": "Fidson Healthcare Plc",
+      "address": "0x0887DcA31922b24Cb447CF106b9dEc0F53A92E55",
+      "maxSupply": "2295000000000000000000000000",
+      "deploymentGas": "2394837",
+      "sector": "Healthcare"
+    },
+    {
+      "symbol": "MAYBAKER",
+      "name": "May & Baker Nigeria Token",
+      "companyName": "May & Baker Nigeria Plc",
+      "address": "0xB7D1d82e2564fc8E92a8F4000e281bC7022A5579",
+      "maxSupply": "1725000000000000000000000000",
+      "deploymentGas": "2394945",
+      "sector": "Healthcare"
+    },
+    {
+      "symbol": "OKOMUOIL",
+      "name": "The Okomu Oil Palm Company Token",
+      "companyName": "The Okomu Oil Palm Company Plc",
+      "address": "0xddAF08c8DBC520e54983746c615c5F9a1E1C8940",
+      "maxSupply": "954000000000000000000000000",
+      "deploymentGas": "2417333",
+      "sector": "Agriculture"
+    },
+    {
+      "symbol": "LIVESTOCK",
+      "name": "Livestock Feeds Token",
+      "companyName": "Livestock Feeds Plc",
+      "address": "0x615E8B54820a8797C2B7dBa6202dC5aB78fc4A65",
+      "maxSupply": "3000000000000000000000000000",
+      "deploymentGas": "2394873",
+      "sector": "Agriculture"
+    },
+    {
+      "symbol": "CWG",
+      "name": "CWG Token",
+      "companyName": "CWG Plc",
+      "address": "0x9bF27FB85dB4751d9bF2C33Be689948405A489Af",
+      "maxSupply": "2525000000000000000000000000",
+      "deploymentGas": "2394357",
+      "sector": "ICT"
+    },
+    {
+      "symbol": "TRANSCOHOT",
+      "name": "Transcorp Hotels Token",
+      "companyName": "Transcorp Hotels Plc",
+      "address": "0x05DB17284C867BAA98aCa5D4177731235c764E9A",
+      "maxSupply": "10240000000000000000000000000",
+      "deploymentGas": "2394849",
+      "sector": "Services"
+    }
+  ]
+}

@@ -1,0 +1,721 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: oklch(97.91% 0 0);
+  --foreground: oklch(12.7% 0.01 264.37);
+  --card: oklch(100% 0 0);
+  --card-foreground: oklch(12.7% 0.01 264.37);
+  --popover: oklch(100% 0 0);
+  --popover-foreground: oklch(12.7% 0.01 264.37);
+  --primary: oklch(55.63% 0.2 151.38);
+  --primary-foreground: oklch(97.2% 0.01 22.62);
+  --secondary: oklch(97.5% 0.005 264.37);
+  --secondary-foreground: oklch(29.6% 0.015 264.37);
+  --muted: oklch(97.5% 0.005 264.37);
+  --muted-foreground: oklch(70% 0.03 264.37);
+  --accent: oklch(97.5% 0.005 264.37);
+  --accent-foreground: oklch(29.6% 0.015 264.37);
+  --destructive: oklch(63.7% 0.23 29.23);
+  --destructive-foreground: oklch(98% 0 0);
+  --border: oklch(89.5% 0.01 264.37);
+  --input: oklch(89.5% 0.01 264.37);
+  --ring: oklch(55.63% 0.2 151.38);
+  --radius: 0.5rem;
+  --chart-1: oklch(67.5% 0.2 50.62);
+  --chart-2: oklch(49.5% 0.16 196.87);
+  --chart-3: oklch(34.7% 0.1 233.62);
+  --chart-4: oklch(74.8% 0.19 105.87);
+  --chart-5: oklch(77% 0.22 84.37);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-primary: oklch(0.21 0.006 285.885);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.967 0.001 286.375);
+  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
+  --sidebar-border: oklch(0.92 0.004 286.32);
+  --sidebar-ring: oklch(0.705 0.015 286.067);
+}
+
+.dark {
+  --background: oklch(10.5% 0.02 57.77);
+  --foreground: oklch(95% 0 0);
+  --card: oklch(18.7% 0.02 65.12);
+  --card-foreground: oklch(95% 0 0);
+  --popover: oklch(8.7% 0 0);
+  --popover-foreground: oklch(95% 0 0);
+  --primary: #00a046;
+  --primary-foreground: oklch(23.7% 0.12 153.15);
+  --secondary: oklch(21.5% 0.01 264.37);
+  --secondary-foreground: oklch(98% 0 0);
+  --muted: oklch(19.5% 0 0);
+  --muted-foreground: oklch(74% 0.03 264.37);
+  --accent: oklch(17.5% 0.01 39.87);
+  --accent-foreground: oklch(98% 0 0);
+  --destructive: oklch(35.6% 0.14 29.23);
+  --destructive-foreground: oklch(97.3% 0.02 29.23);
+  --border: oklch(21.5% 0.01 264.37);
+  --input: oklch(21.5% 0.01 264.37);
+  --ring: oklch(42.1% 0.17 151.25);
+  --chart-1: oklch(52.3% 0.2 250);
+  --chart-2: oklch(57.4% 0.16 169.37);
+  --chart-3: oklch(68.5% 0.2 69.87);
+  --chart-4: oklch(65.7% 0.18 315.12);
+  --chart-5: oklch(61.2% 0.2 357.87);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.274 0.006 286.033);
+  --sidebar-ring: oklch(0.442 0.017 285.786);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ========================================
+   RainbowKit Custom Styling - Complete Theme Integration
+   ======================================== */
+
+/* Global RainbowKit Variables */
+[data-rk] {
+  /* Core Colors */
+  --rk-colors-accentColor: var(--primary);
+  --rk-colors-accentColorForeground: var(--primary-foreground);
+  --rk-colors-actionButtonBorder: var(--border);
+  --rk-colors-actionButtonBorderMobile: var(--border);
+  --rk-colors-actionButtonSecondaryBackground: var(--secondary);
+  --rk-colors-closeButton: var(--muted-foreground);
+  --rk-colors-closeButtonBackground: var(--muted);
+  --rk-colors-connectButtonBackground: var(--primary);
+  --rk-colors-connectButtonBackgroundError: var(--destructive);
+  --rk-colors-connectButtonInnerBackground: var(--card);
+  --rk-colors-connectButtonText: var(--primary-foreground);
+  --rk-colors-connectButtonTextError: var(--destructive-foreground);
+  --rk-colors-connectionIndicator: var(--primary);
+  --rk-colors-downloadBottomCardBackground: var(--card);
+  --rk-colors-downloadTopCardBackground: var(--secondary);
+  --rk-colors-error: var(--destructive);
+  --rk-colors-generalBorder: var(--border);
+  --rk-colors-generalBorderDim: var(--border);
+  --rk-colors-menuItemBackground: var(--card);
+  --rk-colors-modalBackdrop: rgba(0, 0, 0, 0.5);
+  --rk-colors-modalBackground: var(--card);
+  --rk-colors-modalBorder: var(--border);
+  --rk-colors-modalText: var(--foreground);
+  --rk-colors-modalTextDim: var(--muted-foreground);
+  --rk-colors-modalTextSecondary: var(--secondary-foreground);
+  --rk-colors-profileAction: var(--card);
+  --rk-colors-profileActionHover: var(--secondary);
+  --rk-colors-profileForeground: var(--card);
+  --rk-colors-selectedOptionBorder: var(--primary);
+  --rk-colors-standby: var(--muted-foreground);
+
+  /* Border Radius */
+  --rk-radii-actionButton: var(--radius);
+  --rk-radii-connectButton: var(--radius);
+  --rk-radii-menuButton: var(--radius);
+  --rk-radii-modal: var(--radius-lg);
+  --rk-radii-modalMobile: var(--radius);
+
+  /* Fonts */
+  --rk-fonts-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  /* Shadows */
+  --rk-shadows-connectButton: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --rk-shadows-dialog: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --rk-shadows-profileDetailsAction: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --rk-shadows-selectedOption: 0 0 0 1px var(--primary);
+  --rk-shadows-selectedWallet: 0 0 0 1px var(--primary);
+  --rk-shadows-walletLogo: 0 0 0 1px rgba(0, 0, 0, 0.06);
+
+  /* Blur Effects */
+  --rk-blurs-modalOverlay: blur(8px);
+}
+
+/* Dark Mode Adjustments */
+.dark [data-rk] {
+  --rk-colors-modalBackdrop: rgba(0, 0, 0, 0.8);
+  --rk-shadows-dialog: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode address visibility - use white text in dark mode ONLY */
+html.dark [data-rk] button[data-testid="rk-account-button"] [data-rk-address],
+html.dark [data-rk] button[data-testid="rk-account-button"] span:last-child,
+html.dark [data-rk] button[data-testid="rk-account-button"] div:last-child,
+html.dark [data-rk] button[data-testid="rk-account-button"] span,
+html.dark [data-rk] button[data-testid="rk-account-button"] div span,
+html.dark [data-rk] [data-rk-address],
+html.dark [data-rk] *[class*="address"],
+html.dark [data-rk] *[class*="Address"],
+html.dark [data-rk] span:not([class*="balance"]):not([class*="Balance"]),
+html.dark [data-rk] div[style*="color"] span,
+html.dark [data-rk] span[style*="color"] {
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+}
+
+/* Ensure light mode always uses black text */
+html:not(.dark) [data-rk] button[data-testid="rk-account-button"] *,
+html:not(.dark) [data-rk] button[data-testid="rk-account-button"] span,
+html:not(.dark) [data-rk] button[data-testid="rk-account-button"] div,
+html:not(.dark) [data-rk] [data-rk-address] {
+  color: #000000 !important;
+}
+
+/* ========================================
+   Connect Button Styling
+   ======================================== */
+
+/* Main Connect Button */
+[data-rk] button[data-testid="rk-connect-button"] {
+  background: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  font-weight: 500 !important;
+  font-family: var(--rk-fonts-body) !important;
+  transition: all 0.2s ease-in-out !important;
+  box-shadow: var(--rk-shadows-connectButton) !important;
+  padding: 0.5rem 1rem !important;
+  min-height: 2.5rem !important;
+}
+
+[data-rk] button[data-testid="rk-connect-button"]:hover {
+  background: oklch(from var(--primary) calc(l * 0.9) c h) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+}
+
+[data-rk] button[data-testid="rk-connect-button"]:active {
+  transform: translateY(0) !important;
+}
+
+/* Account Button (when connected) */
+[data-rk] button[data-testid="rk-account-button"] {
+  background: var(--card) !important;
+  color: var(--foreground) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+[data-rk] button[data-testid="rk-account-button"]:hover {
+  background: var(--secondary) !important;
+  border-color: var(--primary) !important;
+}
+
+/* Address text within account button - Force black color for visibility */
+[data-rk] button[data-testid="rk-account-button"] [data-rk-address],
+[data-rk] button[data-testid="rk-account-button"] span:last-child,
+[data-rk] button[data-testid="rk-account-button"] div:last-child,
+[data-rk] button[data-testid="rk-account-button"] span,
+[data-rk] button[data-testid="rk-account-button"] div span,
+[data-rk] button[data-testid="rk-account-button"] *:contains("0x"),
+[data-rk] button[data-testid="rk-account-button"]:hover [data-rk-address],
+[data-rk] button[data-testid="rk-account-button"]:hover span:last-child,
+[data-rk] button[data-testid="rk-account-button"]:hover span,
+[data-rk] button[data-testid="rk-account-button"]:focus [data-rk-address],
+[data-rk] button[data-testid="rk-account-button"]:focus span:last-child,
+[data-rk] button[data-testid="rk-account-button"]:focus span {
+  color: #000000 !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* Additional selector for address text in any RainbowKit component */
+[data-rk] *[class*="address"],
+[data-rk] *[class*="Address"] {
+  color: #000000 !important;
+  font-weight: 500 !important;
+}
+
+/* Force black color for any text that looks like an address (starts with 0x) */
+[data-rk] span:not([class*="balance"]):not([class*="Balance"]) {
+  color: #000000 !important;
+}
+
+/* Specific override for RainbowKit's internal address styling */
+[data-rk] div[style*="color"] span,
+[data-rk] span[style*="color"] {
+  color: #000000 !important;
+}
+
+/* Ultra-specific selectors to override RainbowKit's white text */
+[data-rk] button[data-testid="rk-account-button"] * {
+  color: #000000 !important;
+}
+
+/* Override any inline styles that might set white color */
+[data-rk] button[data-testid="rk-account-button"] [style*="color: white"],
+[data-rk] button[data-testid="rk-account-button"] [style*="color: #fff"],
+[data-rk] button[data-testid="rk-account-button"] [style*="color: #ffffff"],
+[data-rk] button[data-testid="rk-account-button"] [style*="color:white"],
+[data-rk] button[data-testid="rk-account-button"] [style*="color:#fff"],
+[data-rk] button[data-testid="rk-account-button"] [style*="color:#ffffff"] {
+  color: #000000 !important;
+}
+
+/* Target RainbowKit's specific class names that might contain address */
+[data-rk] button[data-testid="rk-account-button"] div[class*="iekbcc"],
+[data-rk] button[data-testid="rk-account-button"] span[class*="iekbcc"],
+[data-rk] button[data-testid="rk-account-button"] div[class*="address"],
+[data-rk] button[data-testid="rk-account-button"] span[class*="address"] {
+  color: #000000 !important;
+}
+
+/* Nuclear option - force ALL text in account button to be black in light mode */
+:root:not(.dark) [data-rk] button[data-testid="rk-account-button"],
+:root:not(.dark) [data-rk] button[data-testid="rk-account-button"] *,
+:root:not(.dark) [data-rk] button[data-testid="rk-account-button"] span,
+:root:not(.dark) [data-rk] button[data-testid="rk-account-button"] div,
+:root:not(.dark) [data-rk] button[data-testid="rk-account-button"] p {
+  color: #000000 !important;
+}
+
+/* Override any CSS custom properties that might be setting white color */
+[data-rk] button[data-testid="rk-account-button"] {
+  --rk-colors-modalText: #000000 !important;
+  --rk-colors-modalTextSecondary: #000000 !important;
+  --rk-colors-connectButtonText: #000000 !important;
+}
+
+/* Chain Button */
+[data-rk] button[data-testid="rk-chain-button"] {
+  background: var(--secondary) !important;
+  color: var(--secondary-foreground) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+[data-rk] button[data-testid="rk-chain-button"]:hover {
+  background: var(--accent) !important;
+  border-color: var(--primary) !important;
+}
+
+/* ========================================
+   Modal and Dialog Styling
+   ======================================== */
+
+/* Modal Overlay */
+[data-rk] [data-rk-modal-overlay] {
+  background: var(--rk-colors-modalBackdrop) !important;
+  backdrop-filter: var(--rk-blurs-modalOverlay) !important;
+  animation: fadeIn 0.2s ease-out !important;
+}
+
+/* Main Modal Container */
+[data-rk] [data-rk-modal] {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--rk-shadows-dialog) !important;
+  color: var(--foreground) !important;
+  font-family: var(--rk-fonts-body) !important;
+  animation: slideIn 0.3s ease-out !important;
+}
+
+/* Modal Header */
+[data-rk] [data-rk-modal] h1,
+[data-rk] [data-rk-modal] h2,
+[data-rk] [data-rk-modal] h3 {
+  color: var(--foreground) !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+
+/* Modal Text */
+[data-rk] [data-rk-modal] p,
+[data-rk] [data-rk-modal] span {
+  color: var(--foreground) !important;
+}
+
+/* Secondary Text */
+[data-rk] [data-rk-modal] [data-rk-text-secondary] {
+  color: var(--muted-foreground) !important;
+}
+
+/* Close Button */
+[data-rk] button[aria-label="Close"] {
+  background: var(--muted) !important;
+  color: var(--muted-foreground) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+[data-rk] button[aria-label="Close"]:hover {
+  background: var(--secondary) !important;
+  color: var(--secondary-foreground) !important;
+}
+
+/* ========================================
+   Wallet List and Options
+   ======================================== */
+
+/* Wallet Option Buttons */
+[data-rk] button[data-rk-wallet-option] {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  color: var(--foreground) !important;
+  transition: all 0.2s ease-in-out !important;
+  padding: 1rem !important;
+}
+
+[data-rk] button[data-rk-wallet-option]:hover {
+  background: var(--secondary) !important;
+  border-color: var(--primary) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: var(--rk-shadows-profileDetailsAction) !important;
+}
+
+/* Selected Wallet */
+[data-rk] button[data-rk-wallet-option][data-selected="true"] {
+  background: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  border-color: var(--primary) !important;
+  box-shadow: var(--rk-shadows-selectedWallet) !important;
+}
+
+/* Wallet Icons */
+[data-rk] img[data-rk-wallet-icon] {
+  border-radius: var(--radius) !important;
+  box-shadow: var(--rk-shadows-walletLogo) !important;
+}
+
+/* ========================================
+   Network/Chain Selection
+   ======================================== */
+
+/* Chain Option Buttons */
+[data-rk] button[data-rk-chain-option] {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  color: var(--foreground) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+[data-rk] button[data-rk-chain-option]:hover {
+  background: var(--secondary) !important;
+  border-color: var(--primary) !important;
+}
+
+/* Selected Chain */
+[data-rk] button[data-rk-chain-option][data-selected="true"] {
+  background: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  border-color: var(--primary) !important;
+}
+
+/* Chain Icons */
+[data-rk] img[data-rk-chain-icon] {
+  border-radius: var(--radius) !important;
+}
+
+/* ========================================
+   Account Modal and Profile
+   ======================================== */
+
+/* Profile Actions */
+[data-rk] button[data-rk-profile-action] {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  color: var(--foreground) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+[data-rk] button[data-rk-profile-action]:hover {
+  background: var(--secondary) !important;
+  box-shadow: var(--rk-shadows-profileDetailsAction) !important;
+}
+
+/* Balance Display */
+[data-rk] [data-rk-balance] {
+  color: var(--foreground) !important;
+  font-weight: 500 !important;
+}
+
+/* Address Display */
+[data-rk] [data-rk-address] {
+  color: #000000 !important;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace !important;
+  font-weight: 500 !important;
+}
+
+/* ========================================
+   Transaction History and Recent Transactions
+   ======================================== */
+
+/* Transaction Items */
+[data-rk] [data-rk-transaction-item] {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  color: var(--foreground) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+[data-rk] [data-rk-transaction-item]:hover {
+  background: var(--secondary) !important;
+}
+
+/* Transaction Status */
+[data-rk] [data-rk-transaction-status="pending"] {
+  color: var(--muted-foreground) !important;
+}
+
+[data-rk] [data-rk-transaction-status="confirmed"] {
+  color: var(--primary) !important;
+}
+
+[data-rk] [data-rk-transaction-status="failed"] {
+  color: var(--destructive) !important;
+}
+
+/* ========================================
+   Loading States and Spinners
+   ======================================== */
+
+/* Loading Spinner */
+[data-rk] [data-rk-loading-spinner] {
+  border-color: var(--muted) var(--muted) var(--primary) var(--muted) !important;
+}
+
+/* Loading Text */
+[data-rk] [data-rk-loading-text] {
+  color: var(--muted-foreground) !important;
+}
+
+/* ========================================
+   Error States
+   ======================================== */
+
+/* Error Messages */
+[data-rk] [data-rk-error] {
+  color: var(--destructive) !important;
+  background: var(--destructive) !important;
+  background-opacity: 0.1 !important;
+  border: 1px solid var(--destructive) !important;
+  border-radius: var(--radius) !important;
+  padding: 0.75rem !important;
+}
+
+/* Error Icons */
+[data-rk] [data-rk-error-icon] {
+  color: var(--destructive) !important;
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  [data-rk] [data-rk-modal] {
+    margin: 1rem !important;
+    max-width: calc(100vw - 2rem) !important;
+    border-radius: var(--radius) !important;
+  }
+
+  [data-rk] button[data-testid="rk-connect-button"] {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  [data-rk] button[data-rk-wallet-option] {
+    padding: 0.75rem !important;
+  }
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ========================================
+   Focus States and Accessibility
+   ======================================== */
+
+/* Focus Rings */
+[data-rk] button:focus-visible {
+  outline: 2px solid var(--ring) !important;
+  outline-offset: 2px !important;
+}
+
+[data-rk] button:focus {
+  outline: none !important;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  [data-rk] {
+    --rk-colors-generalBorder: currentColor !important;
+    --rk-colors-modalBorder: currentColor !important;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  [data-rk] * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   Custom Scrollbars
+   ======================================== */
+
+/* Webkit Scrollbars */
+[data-rk] ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+[data-rk] ::-webkit-scrollbar-track {
+  background: var(--muted);
+  border-radius: var(--radius);
+}
+
+[data-rk] ::-webkit-scrollbar-thumb {
+  background: var(--muted-foreground);
+  border-radius: var(--radius);
+}
+
+[data-rk] ::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Firefox Scrollbars */
+[data-rk] * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted-foreground) var(--muted);
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+  [data-rk] {
+    display: none !important;
+  }
+}
