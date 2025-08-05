@@ -1,6 +1,6 @@
 # Liquidity Nigerian Stock Trading Platform - Deployment Guide
 
-This guide covers the complete deployment process for the Liquidity Nigerian Stock Trading Platform, from development to production on Hedera Hashgraph.
+This guide covers the complete deployment process for the Liquidity Nigerian Stock Trading Platform, from development to production on Hedera Hashgraph, Bitfinity EVM, and Ethereum Sepolia networks.
 
 ## 🚀 Pre-Deployment Checklist
 
