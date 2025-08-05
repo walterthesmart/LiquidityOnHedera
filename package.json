@@ -1,0 +1,30 @@
+{
+  "name": "liquidity-on-hedera",
+  "version": "1.0.0",
+  "description": "Nigerian Stock Trading System on Hedera Hashgraph",
+  "main": "deploy-hedera-system.js",
+  "scripts": {
+    "deploy:hedera": "node deploy-hedera-system.js",
+    "install:all": "npm install && cd backend && npm install && cd ../front-end && npm install",
+    "build:all": "cd backend && npm run compile && cd ../front-end && npm run build",
+    "dev:frontend": "cd front-end && npm run dev",
+    "dev:backend": "cd backend && npm run dev"
+  },
+  "keywords": [
+    "hedera",
+    "blockchain",
+    "defi",
+    "stocks",
+    "nigeria",
+    "trading"
+  ],
+  "author": "Liquidity Team",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
