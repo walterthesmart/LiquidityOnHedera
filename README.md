@@ -444,4 +444,40 @@ For support and questions:
 
 ---
 
-**Made with ❤️ for Nigerian investors**
+## 🚀 Quick Start Guide
+
+### For Developers
+
+1. **Clone and Setup**
+   ```bash
+   git clone https://github.com/walterthesmart/LiquidityonHedera.git
+   cd LiquidityonHedera
+   ```
+
+2. **Deploy Contracts**
+   ```bash
+   node scripts/deploy-all-networks.js
+   ```
+
+3. **Run Tests**
+   ```bash
+   node scripts/run-integration-tests.js
+   ```
+
+4. **Start Frontend**
+   ```bash
+   cd front-end && npm run dev
+   ```
+
+### For Investors
+
+1. **Connect Wallet** - Use MetaMask or any EVM-compatible wallet
+2. **Select Network** - Choose Bitfinity EVM, Sepolia, or Hedera
+3. **Browse Stocks** - Explore 38+ Nigerian blue-chip stocks
+4. **Trade Seamlessly** - Buy/sell with NGN stablecoin integration
+
+---
+
+**Made with ❤️ for Nigerian investors and the global blockchain community**
+
+*Empowering financial inclusion through decentralized technology*
