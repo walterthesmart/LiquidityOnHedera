@@ -5,6 +5,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { NetworkSwitcher } from "@/components/ui/network-switcher";
 
 export function Navbar() {
   const router = useRouter();
@@ -37,6 +38,7 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
+            <NetworkSwitcher />
             <ConnectButton />
           </div>
 
@@ -68,6 +70,7 @@ export function Navbar() {
           />
           <div className="fixed top-16 left-0 right-0 bg-background border-b shadow-lg p-4">
             <div className="flex flex-col space-y-4">
+              <NetworkSwitcher />
               <ConnectButton />
             </div>
           </div>
