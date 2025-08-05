@@ -5,6 +5,16 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+/**
+ * Format currency values for Nigerian Naira
+ */
+export function formatNGN(amount: number): string {
+  return new Intl.NumberFormat('en-NG', {
+    style: 'currency',
+    currency: 'NGN'
+  }).format(amount);
+}
+
 // Enhanced error logging utility with better error object handling
 export function logError(
   context: string,
