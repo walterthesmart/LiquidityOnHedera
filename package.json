@@ -4,10 +4,11 @@
   "description": "Nigerian Stock Trading System on Hedera Hashgraph",
   "main": "deploy-hedera-system.js",
   "scripts": {
-    "deploy:hedera": "node deploy-hedera-system.js",
-    "install:all": "npm install && cd backend && npm install && cd ../front-end && npm install",
-    "build:all": "cd backend && npm run compile && cd ../front-end && npm run build",
-    "dev:frontend": "cd front-end && npm run dev",
+    "deploy:hedera": "cd backend && node scripts/deploy-hedera-system.js",
+    "deploy:hedera-sdk": "cd backend && npm run deploy:hedera-sdk",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "build:all": "cd backend && npm run compile && cd ../frontend && npm run build",
+    "dev:frontend": "cd frontend && npm run dev",
     "dev:backend": "cd backend && npm run dev"
   },
   "keywords": [

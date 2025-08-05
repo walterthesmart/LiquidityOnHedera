@@ -209,7 +209,7 @@ async function main(): Promise<DeploymentResult> {
 
 async function generateFrontendConfig(deploymentInfo: DeploymentResult) {
   // Update frontend contract configuration
-  const frontendConfigPath = path.join(__dirname, "../../front-end/src/config/hedera-contracts.json");
+  const frontendConfigPath = path.join(__dirname, "../../frontend/src/config/hedera-contracts.json");
   
   const frontendConfig = {
     chainId: deploymentInfo.network.chainId,

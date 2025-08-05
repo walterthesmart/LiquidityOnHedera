@@ -1,8 +1,0 @@
-{
-  "network": "Hedera Testnet",
-  "chainId": 296,
-  "contractAddress": "0x493bDF801793350d52Ea64491F86Ee25238F9C17",
-  "deploymentHash": "0xd0642a3b72dd32d64deb6b49457123f7b8e05586f428d9d388e92d888e410dc9",
-  "deployer": "0x5224c6E3732EF577277b4D5158ba235Bc4062BE9",
-  "deployedAt": "2025-08-05T18:49:38.882Z"
-}

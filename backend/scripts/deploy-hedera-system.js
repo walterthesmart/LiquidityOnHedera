@@ -60,42 +60,42 @@ function checkEnvironment() {
 
 function checkDependencies() {
   log('\n📦 Checking dependencies...', 'cyan');
-  
-  const backendDir = path.join(__dirname, 'backend');
-  const frontendDir = path.join(__dirname, 'front-end');
-  
+
+  const backendDir = path.join(__dirname, '..');
+  const frontendDir = path.join(__dirname, '../../frontend');
+
   // Check if node_modules exist
   if (!fs.existsSync(path.join(backendDir, 'node_modules'))) {
     log('📥 Installing backend dependencies...', 'yellow');
     execSync('npm install', { cwd: backendDir, stdio: 'inherit' });
   }
-  
+
   if (!fs.existsSync(path.join(frontendDir, 'node_modules'))) {
     log('📥 Installing frontend dependencies...', 'yellow');
     execSync('npm install', { cwd: frontendDir, stdio: 'inherit' });
   }
-  
+
   log('✅ Dependencies are ready!', 'green');
 }
 
 function deployContracts() {
   log('\n🚀 Deploying smart contracts to Hedera Testnet...', 'cyan');
-  
-  const backendDir = path.join(__dirname, 'backend');
-  
+
+  const backendDir = path.join(__dirname, '..');
+
   try {
     // Compile contracts first
     log('🔨 Compiling contracts...', 'yellow');
     execSync('npx hardhat compile', { cwd: backendDir, stdio: 'inherit' });
-    
+
     // Deploy to Hedera testnet
     log('🚀 Deploying to Hedera testnet...', 'yellow');
-    execSync('npx hardhat run scripts/deploy-hedera-complete.ts --network hedera_testnet', { 
-      cwd: backendDir, 
+    execSync('npx hardhat run scripts/deploy-hedera-complete.ts --network hedera_testnet', {
+      cwd: backendDir,
       stdio: 'inherit',
       env: { ...process.env }
     });
-    
+
     log('✅ Smart contracts deployed successfully!', 'green');
     return true;
   } catch (error) {
@@ -110,13 +110,13 @@ function updateFrontendConfig() {
   
   try {
     // Check if Hedera contracts config was generated
-    const hederaConfigPath = path.join(__dirname, 'front-end/src/config/hedera-contracts.json');
-    
+    const hederaConfigPath = path.join(__dirname, '../../frontend/src/config/hedera-contracts.json');
+
     if (fs.existsSync(hederaConfigPath)) {
       const hederaConfig = JSON.parse(fs.readFileSync(hederaConfigPath, 'utf8'));
-      
+
       // Update the main contracts configuration
-      const contractsConfigPath = path.join(__dirname, 'front-end/src/config/contracts.ts');
+      const contractsConfigPath = path.join(__dirname, '../../frontend/src/config/contracts.ts');
       
       if (fs.existsSync(contractsConfigPath)) {
         let contractsConfig = fs.readFileSync(contractsConfigPath, 'utf8');
@@ -156,8 +156,8 @@ function setupDatabase() {
   log('\n🗄️  Setting up database...', 'cyan');
   
   try {
-    const frontendDir = path.join(__dirname, 'front-end');
-    
+    const frontendDir = path.join(__dirname, '../../frontend');
+
     // Run database migration script if it exists
     const migrationScript = path.join(frontendDir, 'scripts/migrate-deployed-stocks-turso.ts');
     
@@ -182,7 +182,7 @@ function displaySummary() {
   log('=' .repeat(50), 'green');
   
   // Try to read deployment info
-  const deploymentPath = path.join(__dirname, 'backend/deployments');
+  const deploymentPath = path.join(__dirname, '../deployments');
   
   if (fs.existsSync(deploymentPath)) {
     const files = fs.readdirSync(deploymentPath).filter(f => f.includes('hedera-testnet-complete'));
@@ -207,12 +207,12 @@ function displaySummary() {
       
       log(`\n📁 Configuration Files:`, 'cyan');
       log(`   📄 Deployment: backend/deployments/${latestFile}`, 'blue');
-      log(`   ⚙️  Frontend: front-end/src/config/hedera-contracts.json`, 'blue');
+      log(`   ⚙️  Frontend: frontend/src/config/hedera-contracts.json`, 'blue');
     }
   }
   
   log('\n🚀 Next Steps:', 'magenta');
-  log('   1. Start the frontend: cd front-end && npm run dev', 'yellow');
+  log('   1. Start the frontend: cd frontend && npm run dev', 'yellow');
   log('   2. Test the trading functionality', 'yellow');
   log('   3. Add liquidity to trading pairs', 'yellow');
   log('   4. Verify contracts on HashScan explorer', 'yellow');
@@ -256,7 +256,7 @@ async function main() {
 }
 
 // Load environment variables from .env file if it exists
-const envPath = path.join(__dirname, '.env');
+const envPath = path.join(__dirname, '../../.env');
 if (fs.existsSync(envPath)) {
   require('dotenv').config({ path: envPath });
 }
