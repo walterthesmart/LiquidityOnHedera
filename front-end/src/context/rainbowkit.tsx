@@ -17,7 +17,7 @@ import {
   base,
   sepolia,
 } from "wagmi/chains";
-import { bitfinityTestnet, bitfinityMainnet } from "@/config";
+import { bitfinityTestnet, bitfinityMainnet, hederaTestnet, hederaMainnet } from "@/config";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactNode, useEffect, useState } from "react";
 
@@ -29,10 +29,12 @@ const config = getDefaultConfig({
   projectId:
     process.env.NEXT_PUBLIC_PROJECT_ID || "b56e18d47c72ab683b10814fe9495694",
   chains: [
-    // Primary networks for Nigerian stock trading
-    bitfinityTestnet,
-    bitfinityMainnet,
-    sepolia, // Ethereum Sepolia testnet for additional testing
+    // Primary networks for Nigerian stock trading (prioritize Sepolia since we have deployments)
+    sepolia, // Ethereum Sepolia testnet - PRIMARY with deployed contracts
+    hederaTestnet, // Hedera Testnet for native HTS tokens
+    hederaMainnet, // Hedera Mainnet for production
+    bitfinityTestnet, // Bitfinity EVM Testnet
+    bitfinityMainnet, // Bitfinity EVM Mainnet
     // Popular EVM chains for broader wallet support
     mainnet,
     polygon,

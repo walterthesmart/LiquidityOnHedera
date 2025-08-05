@@ -1,284 +1,284 @@
 {
   "network": {
-    "name": "localhost",
+    "name": "hardhat",
     "chainId": "31337"
   },
   "deployer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-  "factoryAddress": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-  "deployedAt": "2025-07-21T11:51:54.748Z",
+  "factoryAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "deployedAt": "2025-08-05T17:34:19.307Z",
   "totalTokens": 39,
   "tokens": [
     {
       "symbol": "DANGCEM",
       "name": "Dangote Cement Token",
       "companyName": "Dangote Cement Plc",
-      "address": "0x75537828f2ce51be7289709686A69CbFDbB714F1",
+      "address": "0xa16E02E87b7454126E5E10d957A927A7F5B5d2be",
       "maxSupply": "17040000000000000000000000000"
     },
     {
       "symbol": "MTNN",
       "name": "MTN Nigeria Token",
       "companyName": "MTN Nigeria Communications Plc",
-      "address": "0xE451980132E65465d0a498c53f0b5227326Dd73F",
+      "address": "0xB7A5bd0345EF1Cc5E66bf61BdeC17D2461fBd968",
       "maxSupply": "20354513050000000000000000000"
     },
     {
       "symbol": "ZENITHBANK",
       "name": "Zenith Bank Token",
       "companyName": "Zenith Bank Plc",
-      "address": "0x5392A33F7F677f59e833FEBF4016cDDD88fF9E67",
+      "address": "0xeEBe00Ac0756308ac4AaBfD76c05c4F3088B8883",
       "maxSupply": "31396493786000000000000000000"
     },
     {
       "symbol": "GTCO",
       "name": "GTCO Token",
       "companyName": "Guaranty Trust Holding Company Plc",
-      "address": "0xa783CDc72e34a174CCa57a6d9a74904d0Bec05A9",
+      "address": "0x10C6E9530F1C1AF873a391030a1D9E8ed0630D26",
       "maxSupply": "29431127496000000000000000000"
     },
     {
       "symbol": "NB",
       "name": "Nigerian Breweries Token",
       "companyName": "Nigerian Breweries Plc",
-      "address": "0xB30dAf0240261Be564Cea33260F01213c47AAa0D",
+      "address": "0x603E1BD79259EbcbAaeD0c83eeC09cA0B89a5bcC",
       "maxSupply": "8020000000000000000000000000"
     },
     {
       "symbol": "ACCESS",
       "name": "Access Holdings Token",
       "companyName": "Access Holdings Plc",
-      "address": "0x61ef99673A65BeE0512b8d1eB1aA656866D24296",
+      "address": "0x86337dDaF2661A069D0DcB5D160585acC2d15E9a",
       "maxSupply": "35687500000000000000000000000"
     },
     {
       "symbol": "BUACEMENT",
       "name": "BUA Cement Token",
       "companyName": "BUA Cement Plc",
-      "address": "0xF45bcaDCc83dea176213Ae4E22f5aF918d08647b",
+      "address": "0x9CfA6D15c80Eb753C815079F2b32ddEFd562C3e4",
       "maxSupply": "16000000000000000000000000000"
     },
     {
       "symbol": "AIRTELAFRI",
       "name": "Airtel Africa Token",
       "companyName": "Airtel Africa Plc",
-      "address": "0xeCaE6Cc78251a4F3B8d70c9BD4De1B3742338489",
+      "address": "0x427f7c59ED72bCf26DfFc634FEF3034e00922DD8",
       "maxSupply": "3700000000000000000000000000"
     },
     {
       "symbol": "FBNH",
       "name": "FBN Holdings Token",
       "companyName": "FBN Holdings Plc",
-      "address": "0x09fe532dFA5FfcaD188ce19A70BB7645ce31a1C8",
+      "address": "0x275039fc0fd2eeFac30835af6aeFf24e8c52bA6B",
       "maxSupply": "35895292792000000000000000000"
     },
     {
       "symbol": "UBA",
       "name": "UBA Token",
       "companyName": "United Bank for Africa Plc",
-      "address": "0x53F3788A62b46B8a45484F928Ef182Fd2c149C2b",
+      "address": "0x07e7876A32feEc2cE734aae93d9aB7623EaEF4a3",
       "maxSupply": "35130641814000000000000000000"
     },
     {
       "symbol": "NESTLE",
       "name": "Nestle Nigeria Token",
       "companyName": "Nestle Nigeria Plc",
-      "address": "0x51f9613a79D56528622Bd31a5Fd4b88b78AE4F8A",
+      "address": "0xBfd66D9636253f11aE43f3428e8df73b5aD6950f",
       "maxSupply": "1500000000000000000000000000"
     },
     {
       "symbol": "SEPLAT",
       "name": "Seplat Energy Token",
       "companyName": "Seplat Energy Plc",
-      "address": "0x9133c237A3f4Ce9F48A73Ea03e0448e10cd2f5C1",
+      "address": "0x4441cd5CeDDcdC29bA2C737d124Eb989cE3d373f",
       "maxSupply": "5882353000000000000000000000"
     },
     {
       "symbol": "STANBIC",
       "name": "Stanbic IBTC Token",
       "companyName": "Stanbic IBTC Holdings Plc",
-      "address": "0xC366737A5E66127E2dD410aF9D341945a889eF2E",
+      "address": "0x7e134579b2f4a90136e3B5D905C753C8fD72D1Cc",
       "maxSupply": "15557000000000000000000000000"
     },
     {
       "symbol": "OANDO",
       "name": "Oando Token",
       "companyName": "Oando Plc",
-      "address": "0xF5A81C89bCe2c711BC0a91B19BA4c31d9aeA0875",
+      "address": "0x8eAeE502828c6C6f3e83Df32660a68fCe513Ce8a",
       "maxSupply": "8000000000000000000000000000"
     },
     {
       "symbol": "LAFARGE",
       "name": "Lafarge Africa Token",
       "companyName": "Lafarge Africa Plc",
-      "address": "0xFD4727f95FC2Df074C427158f9244FeB4B6d3076",
+      "address": "0x392ec8958dC3cd14c4F4e5585c54297d24D1a877",
       "maxSupply": "17040000000000000000000000000"
     },
     {
       "symbol": "CONOIL",
       "name": "Conoil Token",
       "companyName": "Conoil Plc",
-      "address": "0x09Df20712491189de6607Fb27bB1DeE53ACB8555",
+      "address": "0xA0973567D4C0F9b04CbE2c0e95CeDb4465F4e4d1",
       "maxSupply": "1200000000000000000000000000"
     },
     {
       "symbol": "WAPCO",
       "name": "WAPCO Token",
       "companyName": "Lafarge Africa Plc (WAPCO)",
-      "address": "0x84D6E95B602df56E3637210F5Dbcc6d23a20C467",
+      "address": "0x081B46D94207710471669a89216E26B5C6c5a82d",
       "maxSupply": "17040000000000000000000000000"
     },
     {
       "symbol": "FLOURMILL",
       "name": "Flour Mills Token",
       "companyName": "Flour Mills of Nigeria Plc",
-      "address": "0x57E1Fa3f9Bf8f4822A8590df964adFf6fd823c37",
+      "address": "0x038B11d1ee1D54C35A379417aB078F1213EF0C8B",
       "maxSupply": "39000000000000000000000000000"
     },
     {
       "symbol": "PRESCO",
       "name": "Presco Token",
       "companyName": "Presco Plc",
-      "address": "0xeD0eBCc3159B74b353F31743a3e75112B050d1B7",
+      "address": "0x551EE8B8FA72936C145EF67fe18742d60Ef056ae",
       "maxSupply": "8000000000000000000000000000"
     },
     {
       "symbol": "CADBURY",
       "name": "Cadbury Nigeria Token",
       "companyName": "Cadbury Nigeria Plc",
-      "address": "0xc4a43Ab416e3eEa727407607B1afbC1955e15788",
+      "address": "0xce35A903d6033E6B5E309ddb8bF1Db5e33070Dbc",
       "maxSupply": "1800000000000000000000000000"
     },
     {
       "symbol": "GUINNESS",
       "name": "Guinness Nigeria Token",
       "companyName": "Guinness Nigeria Plc",
-      "address": "0x27A0D478BABeb113179fFB3bFe329aBBaC64806c",
+      "address": "0xB6C47195B8c8CA224B51359AaE6d2093333Bd65d",
       "maxSupply": "2000000000000000000000000000"
     },
     {
       "symbol": "INTBREW",
       "name": "International Breweries Token",
       "companyName": "International Breweries Plc",
-      "address": "0xa74b36aE6b475959E7b1f766583190e3298CE9D3",
+      "address": "0x40E6Ac236f8690920B256D116C28eb7725B0900B",
       "maxSupply": "9000000000000000000000000000"
     },
     {
       "symbol": "CHAMPION",
       "name": "Champion Breweries Token",
       "companyName": "Champion Breweries Plc",
-      "address": "0xF05496A5D9df8a64c0b5AaB0B628e355a72A66a7",
+      "address": "0xcaFeD73505d015fa8ba445FDe59e00df9f036742",
       "maxSupply": "2500000000000000000000000000"
     },
     {
       "symbol": "UNILEVER",
       "name": "Unilever Nigeria Token",
       "companyName": "Unilever Nigeria Plc",
-      "address": "0x610C6886918DEc150a1727140414f8C0c646cF80",
+      "address": "0xBd206A77927CB5E4F1c4E77B972A32223b97da00",
       "maxSupply": "6000000000000000000000000000"
     },
     {
       "symbol": "TRANSCORP",
       "name": "Transcorp Token",
       "companyName": "Transnational Corporation Plc",
-      "address": "0x266cf1ae44A2Ef11305cB056724ed58d79aefB6D",
+      "address": "0x5233a75f48fC60cdb79A3951deF9a935B49A81a7",
       "maxSupply": "40000000000000000000000000000"
     },
     {
       "symbol": "BUAFOODS",
       "name": "BUA Foods Token",
       "companyName": "BUA Foods Plc",
-      "address": "0x99E8e6b2c39b9d5b5F8567b53D69cA7154Cb4B09",
+      "address": "0x02766DE578d9228c92d8f707f907f51F9A8E6c0f",
       "maxSupply": "18000000000000000000000000000"
     },
     {
       "symbol": "DANGSUGAR",
       "name": "Dangote Sugar Token",
       "companyName": "Dangote Sugar Refinery Plc",
-      "address": "0x1ec4516806DFB8752F28c7e0ec97f0A19aB25E94",
+      "address": "0x01813b9B2E06E4DB5B53BAed1E2F0CD4BA754b7e",
       "maxSupply": "12150000000000000000000000000"
     },
     {
       "symbol": "UACN",
       "name": "UACN Token",
       "companyName": "UAC of Nigeria Plc",
-      "address": "0xC7799fFD68a5A4A9f33cDAB325573E73f005C587",
+      "address": "0x1Af1552569F6A7541128b6F1FD4156Bacc927181",
       "maxSupply": "2925000000000000000000000000"
     },
     {
       "symbol": "PZ",
       "name": "PZ Cussons Token",
       "companyName": "PZ Cussons Nigeria Plc",
-      "address": "0x1BD94602B398717659ecB1FE2E0749E548C69302",
+      "address": "0x9DBADb6a792B7Afad4d1A155D6e01aefDB7FD06b",
       "maxSupply": "3970000000000000000000000000"
     },
     {
       "symbol": "TOTAL",
       "name": "TotalEnergies Token",
       "companyName": "TotalEnergies Marketing Nigeria Plc",
-      "address": "0xccE9d1E247b0F1aC51962A5bf376aA676fa07661",
+      "address": "0x0620989570a69d362392B0B6238b51dB7d22b730",
       "maxSupply": "339500000000000000000000000"
     },
     {
       "symbol": "ETERNA",
       "name": "Eterna Token",
       "companyName": "Eterna Plc",
-      "address": "0x808511C76D781507a0C79Aad53eAf92b47c25322",
+      "address": "0x3f49c7895551f2EaF6a73Cd10aa47e734d7171Db",
       "maxSupply": "1305000000000000000000000000"
     },
     {
       "symbol": "GEREGU",
       "name": "Geregu Power Token",
       "companyName": "Geregu Power Plc",
-      "address": "0xC6aF5F360d4ca749B4e0931290fac47a042E08D8",
+      "address": "0xCE137BfC1c8A8B1B083e12d2c38f8dA0241c4ed4",
       "maxSupply": "2500000000000000000000000000"
     },
     {
       "symbol": "TRANSPOWER",
       "name": "Transcorp Power Token",
       "companyName": "Transcorp Power Plc",
-      "address": "0x454675c325841EFddEF2704c13F0b5ACA960B947",
+      "address": "0x012Cc4af674E7580De4adeebf412f87164f259Ea",
       "maxSupply": "7500000000000000000000000000"
     },
     {
       "symbol": "FIDSON",
       "name": "Fidson Healthcare Token",
       "companyName": "Fidson Healthcare Plc",
-      "address": "0xF002E5376D5965779035038E7F2a91738f7bd522",
+      "address": "0x9d3482B6508ACa47Bc7462a1C97CeF1eC8EEeBDd",
       "maxSupply": "2295000000000000000000000000"
     },
     {
       "symbol": "MAYBAKER",
       "name": "May & Baker Token",
       "companyName": "May & Baker Nigeria Plc",
-      "address": "0xBC6F5E556F90DBaCd247dfe7ff1688DA9D40d4a6",
+      "address": "0x1E861e6b2c81e9fEEF4F5617f63732dAAB03F2b5",
       "maxSupply": "1725000000000000000000000000"
     },
     {
       "symbol": "OKOMUOIL",
       "name": "Okomu Oil Token",
       "companyName": "The Okomu Oil Palm Company Plc",
-      "address": "0xCeAb4Eaee687Bb34af797136999a239839274626",
+      "address": "0x84E952f6353a00EfEd50814987B21AdE31Ab0Eda",
       "maxSupply": "954000000000000000000000000"
     },
     {
       "symbol": "LIVESTOCK",
       "name": "Livestock Feeds Token",
       "companyName": "Livestock Feeds Plc",
-      "address": "0xc4FAc83331E171ce8C00b3F74C3856f8Cc58fFbd",
+      "address": "0x5606f618ec042eF75c11c4FE7ce9d219Bf62e59F",
       "maxSupply": "3000000000000000000000000000"
     },
     {
       "symbol": "CWG",
       "name": "CWG Token",
       "companyName": "CWG Plc",
-      "address": "0xea50f1A4E432FfcfBA47E9AC37401D0C07CCC739",
+      "address": "0x45b2D691B61f3DA9C034c17519276a4B4F80BF01",
       "maxSupply": "2525000000000000000000000000"
     },
     {
       "symbol": "TRANSCOHOT",
       "name": "Transcorp Hotels Token",
       "companyName": "Transcorp Hotels Plc",
-      "address": "0x6Bc9a0cD10C8F69de903504EC2676e1B4a3aDA49",
+      "address": "0x7da3bC4c7346889734271Df0Ff24abec11B7A6b7",
       "maxSupply": "10240000000000000000000000000"
     }
   ]

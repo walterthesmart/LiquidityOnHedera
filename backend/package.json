@@ -16,6 +16,7 @@
     "deploy:mainnet": "hardhat run scripts/deploy.ts --network bitfinity_mainnet",
     "deploy:all-stocks": "hardhat run scripts/deploy-all-stocks.ts",
     "deploy:all-stocks:testnet": "hardhat run scripts/deploy-all-stocks.ts --network bitfinity_testnet",
+    "deploy:hedera-stocks": "hardhat run scripts/deploy-hedera-stocks.ts --network hedera_testnet",
     "deploy:all-stocks:mainnet": "hardhat run scripts/deploy-all-stocks.ts --network bitfinity_mainnet",
     "// --- VERIFICATION ---": "",
     "verify": "hardhat verify",
