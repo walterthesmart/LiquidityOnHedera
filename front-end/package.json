@@ -1,6 +1,6 @@
 {
     "name": "liquidity-frontend",
-    "version": "1.0.0",
+    "version": "1.2.0",
     "description": "Frontend for Liquidity - Nigerian Stock Trading Platform",
     "private": true,
     "scripts": {
