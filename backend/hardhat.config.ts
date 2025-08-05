@@ -59,8 +59,9 @@ const config: HardhatUserConfig = {
       url: process.env.HEDERA_TESTNET_RPC_URL || "https://testnet.hashio.io/api",
       chainId: 296,
       accounts: process.env.HEDERA_PRIVATE_KEY ? [process.env.HEDERA_PRIVATE_KEY] : [],
-      gasPrice: "auto",
-      gas: "auto",
+      gasPrice: 20000000000, // 20 gwei
+      gas: 8000000,
+      timeout: 60000,
     },
     // Hedera Mainnet
     hedera_mainnet: {

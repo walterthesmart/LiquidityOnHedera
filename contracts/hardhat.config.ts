@@ -49,11 +49,11 @@ const config: HardhatUserConfig = {
     },
     // Hedera Testnet
     hedera: {
-      url: process.env.HEDERA_RPC_URL || "https://testnet.hashio.io/api",
+      url: process.env.HEDERA_TESTNET_RPC_URL || "https://testnet.hashio.io/api",
       chainId: 296,
-      accounts: process.env.HEDERA_PRIVATE_KEY ? [process.env.HEDERA_PRIVATE_KEY] : [],
-      gasPrice: "auto",
-      gas: "auto",
+      accounts: process.env.BITFINITY_PRIVATE_KEY ? [process.env.BITFINITY_PRIVATE_KEY] : [],
+      gasPrice: 370000000000, // 370 gwei (Hedera minimum)
+      gas: 8000000,
     },
     // Local development
     hardhat: {

@@ -15,6 +15,16 @@ contract NigerianStockTokenFactory is AccessControl, ReentrancyGuard, Pausable {
     // Role definitions
     bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
     bytes32 public constant DEPLOYER_ROLE = keccak256("DEPLOYER_ROLE");
+
+    // Stock token information struct
+    struct TokenInfo {
+        string name;
+        string symbol;
+        string stockSymbol;
+        string companyName;
+        uint256 maxSupply;
+        address tokenAddress;
+    }
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
     // Deployed tokens registry
@@ -24,7 +34,6 @@ contract NigerianStockTokenFactory is AccessControl, ReentrancyGuard, Pausable {
     
     // Factory statistics
     uint256 public totalDeployedTokens;
-    uint256 public totalMarketCap;
     
     // Events
     event StockTokenDeployed(
@@ -36,7 +45,6 @@ contract NigerianStockTokenFactory is AccessControl, ReentrancyGuard, Pausable {
     );
     event StockTokenUpdated(string indexed symbol, address indexed tokenAddress);
     event BatchDeploymentCompleted(uint256 totalTokens);
-    event MarketCapUpdated(uint256 newTotalMarketCap);
 
     // Custom errors
     error TokenAlreadyExists(string symbol);
@@ -99,21 +107,22 @@ contract NigerianStockTokenFactory is AccessControl, ReentrancyGuard, Pausable {
         NigerianStockToken newToken = new NigerianStockToken(
             _name,
             _symbol,
+            _stockSymbol,
+            _companyName,
+            _maxSupply,
             _initialSupply,
-            _stockMetadata,
             _tokenAdmin
         );
 
         address tokenAddress = address(newToken);
 
         // Register token
-        stockTokens[_symbol] = tokenAddress;
+        stockTokens[_stockSymbol] = tokenAddress;
         isValidStockToken[tokenAddress] = true;
-        deployedSymbols.push(_symbol);
+        deployedSymbols.push(_stockSymbol);
         totalDeployedTokens++;
-        totalMarketCap += _stockMetadata.marketCap;
 
-        emit StockTokenDeployed(_symbol, tokenAddress, _name, _initialSupply, _tokenAdmin);
+        emit StockTokenDeployed(_stockSymbol, tokenAddress, _name, _initialSupply, _tokenAdmin);
 
         return tokenAddress;
     }
@@ -121,22 +130,26 @@ contract NigerianStockTokenFactory is AccessControl, ReentrancyGuard, Pausable {
     /**
      * @dev Batch deploy multiple stock tokens
      * @param _tokenData Array of token deployment data
+     * @param _tokenAdmin Admin address for all tokens
      */
     function batchDeployStockTokens(
-        TokenDeploymentData[] calldata _tokenData
+        TokenDeploymentData[] calldata _tokenData,
+        address _tokenAdmin
     ) external onlyRole(DEPLOYER_ROLE) nonReentrant whenNotPaused {
         if (_tokenData.length == 0) revert InvalidArrayLength();
 
         for (uint256 i = 0; i < _tokenData.length; i++) {
             TokenDeploymentData calldata data = _tokenData[i];
 
-            if (stockTokens[data.symbol] == address(0)) {
+            if (stockTokens[data.stockSymbol] == address(0)) {
                 _deployStockTokenInternal(
                     data.name,
                     data.symbol,
+                    data.stockSymbol,
+                    data.companyName,
+                    data.maxSupply,
                     data.initialSupply,
-                    data.stockMetadata,
-                    data.tokenAdmin
+                    _tokenAdmin
                 );
             }
         }
@@ -168,38 +181,27 @@ contract NigerianStockTokenFactory is AccessControl, ReentrancyGuard, Pausable {
     function getTokenInfo(string calldata _symbol)
         external
         view
-        returns (NigerianStockToken.StockMetadata memory)
+        returns (TokenInfo memory)
     {
-        address payable tokenAddress = payable(stockTokens[_symbol]);
-        if (tokenAddress == address(0)) revert TokenNotFound(_symbol);
-
-        return NigerianStockToken(tokenAddress).getStockInfo();
-    }
-
-    /**
-     * @dev Update market cap for a token (only ADMIN_ROLE)
-     * @param _symbol Token symbol
-     * @param _newMarketCap New market cap value
-     */
-    function updateTokenMarketCap(string calldata _symbol, uint256 _newMarketCap)
-        external
-        onlyRole(ADMIN_ROLE) {
-        address payable tokenAddress = payable(stockTokens[_symbol]);
+        address tokenAddress = stockTokens[_symbol];
         if (tokenAddress == address(0)) revert TokenNotFound(_symbol);
 
         NigerianStockToken token = NigerianStockToken(tokenAddress);
-        NigerianStockToken.StockMetadata memory currentInfo = token.getStockInfo();
+        return TokenInfo({
+            name: token.name(),
+            symbol: token.symbol(),
+            stockSymbol: token.stockSymbol(),
+            companyName: token.companyName(),
+            maxSupply: token.maxSupply(),
+            tokenAddress: tokenAddress
+        });
+    }
 
-        // Update total market cap
-        totalMarketCap = totalMarketCap - currentInfo.marketCap + _newMarketCap;
-
-        // Update token metadata
-        currentInfo.marketCap = _newMarketCap;
-        currentInfo.lastUpdated = block.timestamp;
-
-        token.updateStockMetadata(currentInfo);
-
-        emit MarketCapUpdated(totalMarketCap);
+    /**
+     * @dev Get token count
+     */
+    function getTokenCount() external view returns (uint256) {
+        return totalDeployedTokens;
     }
 
     /**
@@ -221,10 +223,9 @@ contract NigerianStockTokenFactory is AccessControl, ReentrancyGuard, Pausable {
      */
     function getFactoryStats() external view returns (
         uint256 _totalDeployedTokens,
-        uint256 _totalMarketCap,
         uint256 _totalSymbols
     ) {
-        return (totalDeployedTokens, totalMarketCap, deployedSymbols.length);
+        return (totalDeployedTokens, deployedSymbols.length);
     }
 
     /**
@@ -239,9 +240,10 @@ contract NigerianStockTokenFactory is AccessControl, ReentrancyGuard, Pausable {
     struct TokenDeploymentData {
         string name;
         string symbol;
+        string stockSymbol;
+        string companyName;
+        uint256 maxSupply;
         uint256 initialSupply;
-        NigerianStockToken.StockMetadata stockMetadata;
-        address tokenAdmin;
     }
 
     /**

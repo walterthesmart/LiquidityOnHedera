@@ -38,6 +38,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC721Errors__factory>;
     getContractFactory(
+      name: "IERC1363",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC1363__factory>;
+    getContractFactory(
       name: "IERC5267",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC5267__factory>;
@@ -45,6 +49,10 @@ declare module "hardhat/types/runtime" {
       name: "ERC20",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ERC20__factory>;
+    getContractFactory(
+      name: "ERC20Burnable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC20Burnable__factory>;
     getContractFactory(
       name: "ERC20Pausable",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -65,6 +73,10 @@ declare module "hardhat/types/runtime" {
       name: "IERC20",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC20__factory>;
+    getContractFactory(
+      name: "SafeERC20",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.SafeERC20__factory>;
     getContractFactory(
       name: "ECDSA",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -106,6 +118,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Strings__factory>;
     getContractFactory(
+      name: "NGNStablecoin",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.NGNStablecoin__factory>;
+    getContractFactory(
       name: "NigerianStockFactory",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.NigerianStockFactory__factory>;
@@ -113,6 +129,18 @@ declare module "hardhat/types/runtime" {
       name: "NigerianStockToken",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.NigerianStockToken__factory>;
+    getContractFactory(
+      name: "NigerianStockTokenFactory",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.NigerianStockTokenFactory__factory>;
+    getContractFactory(
+      name: "StockNGNDEX",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.StockNGNDEX__factory>;
+    getContractFactory(
+      name: "TradingPairManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.TradingPairManager__factory>;
 
     getContractAt(
       name: "AccessControl",
@@ -145,6 +173,11 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IERC721Errors>;
     getContractAt(
+      name: "IERC1363",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC1363>;
+    getContractAt(
       name: "IERC5267",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -154,6 +187,11 @@ declare module "hardhat/types/runtime" {
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.ERC20>;
+    getContractAt(
+      name: "ERC20Burnable",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC20Burnable>;
     getContractAt(
       name: "ERC20Pausable",
       address: string | ethers.Addressable,
@@ -179,6 +217,11 @@ declare module "hardhat/types/runtime" {
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.IERC20>;
+    getContractAt(
+      name: "SafeERC20",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.SafeERC20>;
     getContractAt(
       name: "ECDSA",
       address: string | ethers.Addressable,
@@ -230,6 +273,11 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.Strings>;
     getContractAt(
+      name: "NGNStablecoin",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.NGNStablecoin>;
+    getContractAt(
       name: "NigerianStockFactory",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -239,6 +287,21 @@ declare module "hardhat/types/runtime" {
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.NigerianStockToken>;
+    getContractAt(
+      name: "NigerianStockTokenFactory",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.NigerianStockTokenFactory>;
+    getContractAt(
+      name: "StockNGNDEX",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.StockNGNDEX>;
+    getContractAt(
+      name: "TradingPairManager",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.TradingPairManager>;
 
     deployContract(
       name: "AccessControl",
@@ -265,6 +328,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IERC721Errors>;
     deployContract(
+      name: "IERC1363",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IERC1363>;
+    deployContract(
       name: "IERC5267",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IERC5267>;
@@ -272,6 +339,10 @@ declare module "hardhat/types/runtime" {
       name: "ERC20",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.ERC20>;
+    deployContract(
+      name: "ERC20Burnable",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ERC20Burnable>;
     deployContract(
       name: "ERC20Pausable",
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -292,6 +363,10 @@ declare module "hardhat/types/runtime" {
       name: "IERC20",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IERC20>;
+    deployContract(
+      name: "SafeERC20",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.SafeERC20>;
     deployContract(
       name: "ECDSA",
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -333,6 +408,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Strings>;
     deployContract(
+      name: "NGNStablecoin",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.NGNStablecoin>;
+    deployContract(
       name: "NigerianStockFactory",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.NigerianStockFactory>;
@@ -340,6 +419,18 @@ declare module "hardhat/types/runtime" {
       name: "NigerianStockToken",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.NigerianStockToken>;
+    deployContract(
+      name: "NigerianStockTokenFactory",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.NigerianStockTokenFactory>;
+    deployContract(
+      name: "StockNGNDEX",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.StockNGNDEX>;
+    deployContract(
+      name: "TradingPairManager",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.TradingPairManager>;
 
     deployContract(
       name: "AccessControl",
@@ -372,6 +463,11 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IERC721Errors>;
     deployContract(
+      name: "IERC1363",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IERC1363>;
+    deployContract(
       name: "IERC5267",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -381,6 +477,11 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.ERC20>;
+    deployContract(
+      name: "ERC20Burnable",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ERC20Burnable>;
     deployContract(
       name: "ERC20Pausable",
       args: any[],
@@ -406,6 +507,11 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IERC20>;
+    deployContract(
+      name: "SafeERC20",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.SafeERC20>;
     deployContract(
       name: "ECDSA",
       args: any[],
@@ -457,6 +563,11 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Strings>;
     deployContract(
+      name: "NGNStablecoin",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.NGNStablecoin>;
+    deployContract(
       name: "NigerianStockFactory",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -466,6 +577,21 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.NigerianStockToken>;
+    deployContract(
+      name: "NigerianStockTokenFactory",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.NigerianStockTokenFactory>;
+    deployContract(
+      name: "StockNGNDEX",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.StockNGNDEX>;
+    deployContract(
+      name: "TradingPairManager",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.TradingPairManager>;
 
     // default types
     getContractFactory(

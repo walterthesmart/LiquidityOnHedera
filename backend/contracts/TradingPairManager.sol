@@ -215,15 +215,18 @@ contract TradingPairManager is AccessControl, ReentrancyGuard, Pausable {
             revert InvalidAmount(0);
         }
 
-        // Get stock token information
-        NigerianStockToken.StockMetadata memory stockInfo = 
-            NigerianStockToken(payable(stockToken)).getStockInfo();
+        // Verify stock token is valid and get info
+        NigerianStockToken stockTokenContract = NigerianStockToken(stockToken);
+        require(IERC20(stockToken).totalSupply() > 0, "Invalid stock token");
+
+        string memory symbol = stockTokenContract.stockSymbol();
+        string memory companyName = stockTokenContract.companyName();
 
         // Create trading pair in DEX
         // First approve tokens for DEX
         ngnToken.approve(address(dexContract), initialNGNLiquidity);
         IERC20(stockToken).approve(address(dexContract), initialStockLiquidity);
-        
+
         // Create the pair
         dexContract.createTradingPair(
             stockToken,
@@ -235,8 +238,8 @@ contract TradingPairManager is AccessControl, ReentrancyGuard, Pausable {
         // Create managed pair record
         managedPairs[stockToken] = ManagedPair({
             stockToken: stockToken,
-            symbol: stockInfo.symbol,
-            companyName: stockInfo.companyName,
+            symbol: symbol,
+            companyName: companyName,
             isActive: true,
             createdAt: block.timestamp,
             initialNGNLiquidity: initialNGNLiquidity,
@@ -248,7 +251,7 @@ contract TradingPairManager is AccessControl, ReentrancyGuard, Pausable {
         });
 
         // Update mappings and arrays
-        symbolToToken[stockInfo.symbol] = stockToken;
+        symbolToToken[symbol] = stockToken;
         allManagedTokens.push(stockToken);
         liquidityTargets[stockToken] = targetLiquidity;
         rebalanceThresholds[stockToken] = config.defaultRebalanceThreshold;
@@ -259,7 +262,7 @@ contract TradingPairManager is AccessControl, ReentrancyGuard, Pausable {
 
         emit PairCreated(
             stockToken,
-            stockInfo.symbol,
+            symbol,
             initialNGNLiquidity,
             initialStockLiquidity,
             feeRate

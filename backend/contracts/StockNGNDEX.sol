@@ -188,7 +188,7 @@ contract StockNGNDEX is AccessControl, ReentrancyGuard, Pausable {
         if (feeRate > 1000) revert InvalidConfiguration(); // Max 10% fee
 
         // Verify it's a valid stock token (optional check)
-        try NigerianStockToken(payable(stockToken)).getStockInfo() returns (NigerianStockToken.StockMetadata memory) {
+        try NigerianStockToken(stockToken).stockSymbol() returns (string memory) {
             // Valid stock token
         } catch {
             revert InvalidStockToken(stockToken);
