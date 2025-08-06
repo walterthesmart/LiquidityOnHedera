@@ -94,7 +94,7 @@ export function getHardhatGasConfig(): {
   blockGasLimit: number;
   allowUnlimitedContractSize: boolean;
   timeout: number;
-} {
+  } {
   return {
     gasPrice: HEDERA_CONFIG.MIN_GAS_PRICE,
     gas: HEDERA_CONFIG.BLOCK_GAS_LIMIT,
@@ -151,7 +151,7 @@ export function getRetryConfig(): {
   maxRetries: number;
   retryDelay: number;
   backoffMultiplier: number;
-} {
+  } {
   return {
     maxRetries: HEDERA_CONFIG.MAX_RETRIES,
     retryDelay: 2000, // 2 seconds between retries

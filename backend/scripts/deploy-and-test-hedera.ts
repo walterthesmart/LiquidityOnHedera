@@ -37,7 +37,7 @@ async function validateEnvironment(): Promise<boolean> {
   );
   
   if (missingVars.length > 0) {
-    log(`❌ Missing required environment variables:`, 'red');
+    log('❌ Missing required environment variables:', 'red');
     missingVars.forEach(varName => {
       log(`   - ${varName}`, 'red');
     });

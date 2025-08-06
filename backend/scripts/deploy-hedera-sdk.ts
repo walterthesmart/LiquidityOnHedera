@@ -191,7 +191,7 @@ async function uploadContractBytecode(contractName: string, bytecode: string, op
       }
     }
     
-    log(`✅ All chunks uploaded successfully`, 'green');
+    log('✅ All chunks uploaded successfully', 'green');
   }
   
   return bytecodeFileId;
@@ -256,9 +256,9 @@ async function deployContract(
     if (error.message.includes('INSUFFICIENT_GAS')) {
       log(`   💡 Try increasing gas limit (current: ${gasLimit})`, 'yellow');
     } else if (error.message.includes('INSUFFICIENT_PAYER_BALANCE')) {
-      log(`   💡 Insufficient HBAR balance for deployment`, 'yellow');
+      log('   💡 Insufficient HBAR balance for deployment', 'yellow');
     } else if (error.message.includes('CONTRACT_BYTECODE_EMPTY')) {
-      log(`   💡 Contract bytecode is empty or invalid`, 'yellow');
+      log('   💡 Contract bytecode is empty or invalid', 'yellow');
     }
     
     throw error;
@@ -356,10 +356,10 @@ export async function main(): Promise<DeploymentResultData | null> {
 
     // Constructor parameters for NGN Stablecoin
     const stablecoinConfig: StablecoinConfig = {
-      name: "Nigerian Naira Stablecoin",
-      symbol: "NGN",
-      maxSupply: "1000000000000000000000000000", // 1 billion NGN (18 decimals)
-      mintingCap: "10000000000000000000000000", // 10 million NGN daily cap
+      name: 'Nigerian Naira Stablecoin',
+      symbol: 'NGN',
+      maxSupply: '1000000000000000000000000000', // 1 billion NGN (18 decimals)
+      mintingCap: '10000000000000000000000000', // 10 million NGN daily cap
       mintingEnabled: true,
       burningEnabled: true,
       transfersEnabled: true
@@ -401,7 +401,7 @@ export async function main(): Promise<DeploymentResultData | null> {
     const dexConfig: DEXConfig = {
       defaultFeeRate: 30, // 0.3%
       maxPriceImpact: 1000, // 10%
-      minLiquidity: "1000000000000000000000", // 1000 NGN minimum (18 decimals)
+      minLiquidity: '1000000000000000000000', // 1000 NGN minimum (18 decimals)
       swapDeadline: 1800, // 30 minutes
       emergencyMode: false
     };
@@ -487,7 +487,7 @@ export async function main(): Promise<DeploymentResultData | null> {
 
     log(`\n📄 Deployment results saved to: ${deploymentFile}`, 'blue');
     log('\n✅ All contracts deployed successfully!', 'green');
-    log(`\n📊 Summary:`, 'cyan');
+    log('\n📊 Summary:', 'cyan');
     log(`   • NGN Stablecoin: ${deploymentResult.contracts.ngnStablecoin?.contractId}`, 'blue');
     log(`   • Stock Factory: ${deploymentResult.contracts.factory?.contractId}`, 'blue');
     log(`   • StockNGNDEX: ${deploymentResult.contracts.stockNGNDEX?.contractId}`, 'blue');

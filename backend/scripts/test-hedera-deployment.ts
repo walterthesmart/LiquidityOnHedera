@@ -107,7 +107,7 @@ async function testContractInfo(contractId: string, contractName: string): Promi
       .setContractId(ContractId.fromString(contractId))
       .execute(client);
     
-    log(`✅ Contract info retrieved successfully`, 'green');
+    log('✅ Contract info retrieved successfully', 'green');
     log(`   Contract ID: ${contractInfo.contractId}`, 'blue');
     log(`   Account ID: ${contractInfo.accountId}`, 'blue');
     log(`   Admin Key: ${contractInfo.adminKey ? 'Set' : 'Not set'}`, 'blue');
@@ -127,20 +127,16 @@ async function testContractCall(
   contractName: string = ''
 ): Promise<any | null> {
   log(`\n📞 Testing ${contractName} ${functionName} call...`, 'cyan');
-  
+
   try {
-    let query = new ContractCallQuery()
+    const query = new ContractCallQuery()
       .setContractId(ContractId.fromString(contractId))
       .setGas(100000)
-      .setFunction(functionName);
-
-    if (parameters) {
-      query = query.setFunctionParameters(parameters.encode());
-    }
+      .setFunction(functionName, parameters);
     
     const result = await query.execute(client);
     
-    log(`✅ Contract call successful`, 'green');
+    log('✅ Contract call successful', 'green');
     log(`   Gas used: ${result.gasUsed}`, 'blue');
     
     return result;
@@ -151,7 +147,7 @@ async function testContractCall(
 }
 
 async function testNGNStablecoin(contractId: string): Promise<boolean> {
-  log(`\n🪙 Testing NGN Stablecoin functionality...`, 'cyan');
+  log('\n🪙 Testing NGN Stablecoin functionality...', 'cyan');
   
   // Test name() function
   const nameResult = await testContractCall(contractId, 'name', null, 'NGN');
@@ -184,7 +180,7 @@ async function testStockToken(contractId: string, symbol: string): Promise<boole
 }
 
 async function testDEXContract(contractId: string): Promise<boolean> {
-  log(`\n🔄 Testing StockNGNDEX functionality...`, 'cyan');
+  log('\n🔄 Testing StockNGNDEX functionality...', 'cyan');
   
   // Test basic view functions
   const feeRateResult = await testContractCall(contractId, 'defaultFeeRate', null, 'DEX');
