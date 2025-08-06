@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-06T00:41:24.680Z",
+  "lastUpdated": "2025-08-06T17:13:38.531Z",
   "totalStocks": 5,
   "stocks": [
     {
@@ -97,5 +97,7 @@
       "tradingEnabled": true,
       "lastUpdated": "2025-08-06T00:41:24.680Z"
     }
-  ]
+  ],
+  "deploymentStatus": "partial",
+  "ngnDeployed": true
 }

@@ -1,0 +1,14 @@
+{
+  "network": "hedera-testnet",
+  "deployer": "0x9aF836cCbA4BaA530894B12760208ccAF548c63e",
+  "deployedAt": "2025-08-06T17:14:54.482Z",
+  "contracts": {
+    "NigerianStockFactory": {
+      "address": "0xe9Bf25cdBB2957081C81caEfCE1827165808F13E",
+      "contractId": "N/A",
+      "name": "Nigerian Stock Factory",
+      "status": "deployed"
+    }
+  },
+  "stockTokens": {}
+}

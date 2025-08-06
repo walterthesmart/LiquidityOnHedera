@@ -1,0 +1,37 @@
+{
+  "network": "hedera-testnet",
+  "deployer": "0x9aF836cCbA4BaA530894B12760208ccAF548c63e",
+  "deployedAt": "2025-08-06T17:15:58.310Z",
+  "contracts": {
+    "NigerianStockFactory": {
+      "address": "0x161efb3C2503Db08d5c962bf9FC9d7D625F9C331",
+      "contractId": "N/A",
+      "name": "Nigerian Stock Factory",
+      "status": "deployed"
+    }
+  },
+  "stockTokens": {
+    "DANGCEM": {
+      "address": "0x29b4907B13C1b2E0F353612450e0463aA5530933",
+      "contractId": "N/A",
+      "name": "Dangote Cement",
+      "symbol": "DANGCEM",
+      "companyName": "Dangote Cement Plc",
+      "maxSupply": "1000000000000000000000000",
+      "sector": "Industrial Goods",
+      "description": "Leading cement manufacturer in Nigeria and Africa",
+      "status": "deployed"
+    },
+    "GTCO": {
+      "address": "0x5e96EA822BaF7d80e6BD2eC993ec70Af3838aeCb",
+      "contractId": "N/A",
+      "name": "Guaranty Trust Bank",
+      "symbol": "GTCO",
+      "companyName": "Guaranty Trust Holding Company Plc",
+      "maxSupply": "2000000000000000000000000",
+      "sector": "Banking",
+      "description": "One of Nigeria's leading financial institutions",
+      "status": "deployed"
+    }
+  }
+}

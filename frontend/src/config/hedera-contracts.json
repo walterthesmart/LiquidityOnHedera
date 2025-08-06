@@ -1,18 +1,20 @@
 {
   "network": "hedera-testnet",
-  "lastUpdated": "2025-08-06T00:41:24.676Z",
+  "lastUpdated": "2025-08-06T17:21:38.940Z",
   "contracts": {
     "NGNStablecoin": {
-      "address": "0xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-      "contractId": "0.0.2001",
+      "address": "0x7188831641072a9edB16BDB88280B54f10c0debd",
+      "contractId": "N/A",
       "name": "Nigerian Naira Stablecoin",
       "symbol": "NGN",
-      "decimals": 18
+      "decimals": 18,
+      "status": "deployed"
     },
     "NigerianStockFactory": {
-      "address": "0xBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-      "contractId": "0.0.2002",
-      "name": "Nigerian Stock Factory"
+      "address": "0x722f539862A849D4C1E6aE9dd56722Af102a9Cd3",
+      "contractId": "N/A",
+      "name": "Nigerian Stock Factory",
+      "status": "deployed"
     },
     "StockNGNDEX": {
       "address": "0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
@@ -27,24 +29,26 @@
   },
   "stockTokens": {
     "DANGCEM": {
-      "address": "0x1111111111111111111111111111111111111111",
-      "contractId": "0.0.1001",
+      "address": "0x38760Bf036578dD043f35EF2Ce53Ff0bfe527AEE",
+      "contractId": "N/A",
       "name": "Dangote Cement",
       "symbol": "DANGCEM",
       "companyName": "Dangote Cement Plc",
-      "maxSupply": "1000000",
+      "maxSupply": "1000000000000000000000000",
       "sector": "Industrial Goods",
-      "description": "Leading cement manufacturer in Nigeria and Africa"
+      "description": "Leading cement manufacturer in Nigeria and Africa",
+      "status": "deployed"
     },
     "GTCO": {
-      "address": "0x2222222222222222222222222222222222222222",
-      "contractId": "0.0.1002",
+      "address": "0xCFeB0a73adF2cc53eB866A92Ace9669d542caB53",
+      "contractId": "N/A",
       "name": "Guaranty Trust Bank",
       "symbol": "GTCO",
       "companyName": "Guaranty Trust Holding Company Plc",
-      "maxSupply": "2000000",
+      "maxSupply": "2000000000000000000000000",
       "sector": "Banking",
-      "description": "One of Nigeria's leading financial institutions"
+      "description": "One of Nigeria's leading financial institutions",
+      "status": "deployed"
     },
     "AIRTELAFRI": {
       "address": "0x3333333333333333333333333333333333333333",
@@ -76,5 +80,6 @@
       "sector": "Oil & Gas",
       "description": "Independent oil and gas company in Nigeria"
     }
-  }
+  },
+  "deploymentStatus": "complete"
 }
