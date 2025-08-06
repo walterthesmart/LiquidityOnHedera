@@ -1,0 +1,167 @@
+{
+  "network": "hedera-testnet",
+  "lastUpdated": "2025-08-06T18:45:00.000Z",
+  "deploymentStatus": "complete",
+  "contracts": {
+    "NGNStablecoin": {
+      "address": "0xa03D66E92A4F6b0D766cEC0C5f22424036B39e6A",
+      "contractId": "N/A",
+      "name": "Nigerian Naira Stablecoin",
+      "symbol": "NGN",
+      "decimals": 18,
+      "status": "deployed"
+    },
+    "NigerianStockFactory": {
+      "address": "0x0321F9D13376921c15f9d0e2E5ef48810c998c30",
+      "contractId": "N/A",
+      "name": "Nigerian Stock Factory",
+      "status": "deployed"
+    },
+    "StockNGNDEX": {
+      "address": "0x0964F727CfA630F1aA810679A95e1BFf3710dDA2",
+      "contractId": "N/A",
+      "name": "Stock NGN DEX",
+      "status": "deployed"
+    },
+    "TradingPairManager": {
+      "address": "0xF1B0301820F98ee8496cabb203b5F13E13C9f107",
+      "contractId": "N/A",
+      "name": "Trading Pair Manager",
+      "status": "deployed"
+    }
+  },
+  "stockTokens": {
+    "DANGCEM": {
+      "address": "0x07Df4C45D187875C06a8E0381673d7c164891c08",
+      "contractId": "N/A",
+      "name": "Dangote Cement",
+      "symbol": "DANGCEM",
+      "companyName": "Dangote Cement Plc",
+      "maxSupply": "1000000000000000000000000",
+      "sector": "Industrial Goods",
+      "description": "Leading cement manufacturer in Nigeria and Africa",
+      "status": "deployed"
+    },
+    "GTCO": {
+      "address": "0x41414F8221027875755C9723748E6F2b0b3fF968",
+      "contractId": "N/A",
+      "name": "Guaranty Trust Bank",
+      "symbol": "GTCO",
+      "companyName": "Guaranty Trust Holding Company Plc",
+      "maxSupply": "2000000000000000000000000",
+      "sector": "Banking",
+      "description": "One of Nigeria's leading financial institutions",
+      "status": "deployed"
+    },
+    "AIRTELAFRI": {
+      "address": "0x36B14F2C0C0F33B36767eA41F9B47981422ea46B",
+      "contractId": "N/A",
+      "name": "Airtel Africa",
+      "symbol": "AIRTELAFRI",
+      "companyName": "Airtel Africa Plc",
+      "maxSupply": "1500000000000000000000000",
+      "sector": "Telecommunications",
+      "description": "Leading telecommunications company across Africa",
+      "status": "deployed"
+    },
+    "BUACEMENT": {
+      "address": "0xE990cE2f04C23e67E5334223E846723F8910dcDa",
+      "contractId": "N/A",
+      "name": "BUA Cement",
+      "symbol": "BUACEMENT",
+      "companyName": "BUA Cement Plc",
+      "maxSupply": "800000000000000000000000",
+      "sector": "Industrial Goods",
+      "description": "Major cement producer in Nigeria",
+      "status": "deployed"
+    },
+    "SEPLAT": {
+      "address": "0x6bA4fc07b222820AB22EB9d6580cE126372FBe08",
+      "contractId": "N/A",
+      "name": "Seplat Energy",
+      "symbol": "SEPLAT",
+      "companyName": "Seplat Energy Plc",
+      "maxSupply": "600000000000000000000000",
+      "sector": "Oil & Gas",
+      "description": "Independent oil and gas company in Nigeria",
+      "status": "deployed"
+    },
+    "MTNN": {
+      "address": "0x3E68e74aa45dC251846AFD86f3709FE618972204",
+      "contractId": "N/A",
+      "name": "MTN Nigeria",
+      "symbol": "MTNN",
+      "companyName": "MTN Nigeria Communications Plc",
+      "maxSupply": "2100000000000000000000000",
+      "sector": "Telecommunications",
+      "description": "Leading telecommunications provider in Nigeria",
+      "status": "deployed"
+    },
+    "ZENITHBANK": {
+      "address": "0xf05003d077BEAde905718397fB5090968D1524f0",
+      "contractId": "N/A",
+      "name": "Zenith Bank",
+      "symbol": "ZENITHBANK",
+      "companyName": "Zenith Bank Plc",
+      "maxSupply": "3100000000000000000000000",
+      "sector": "Banking",
+      "description": "One of Nigeria's tier-1 commercial banks",
+      "status": "deployed"
+    },
+    "ACCESS": {
+      "address": "0xDa5E8b66790F94821ab826f827fB4e5a96328521",
+      "contractId": "N/A",
+      "name": "Access Bank",
+      "symbol": "ACCESS",
+      "companyName": "Access Holdings Plc",
+      "maxSupply": "3600000000000000000000000",
+      "sector": "Banking",
+      "description": "Leading commercial bank in Nigeria",
+      "status": "deployed"
+    },
+    "FBNH": {
+      "address": "0x2Cb266c3bbD5B9e3FaF1Deb523B921FD84B2F9e7",
+      "contractId": "N/A",
+      "name": "FBN Holdings",
+      "symbol": "FBNH",
+      "companyName": "FBN Holdings Plc",
+      "maxSupply": "3500000000000000000000000",
+      "sector": "Banking",
+      "description": "Holding company for First Bank of Nigeria",
+      "status": "deployed"
+    },
+    "UBA": {
+      "address": "0xAd0938c98166226B1B19109D961b99afC5f50d0e",
+      "contractId": "N/A",
+      "name": "United Bank for Africa",
+      "symbol": "UBA",
+      "companyName": "United Bank for Africa Plc",
+      "maxSupply": "3800000000000000000000000",
+      "sector": "Banking",
+      "description": "Pan-African financial services group",
+      "status": "deployed"
+    },
+    "NESTLE": {
+      "address": "0xBa65737Fb59Ba7Cb60f752343D0F5ecbd0e71bB4",
+      "contractId": "N/A",
+      "name": "Nestle Nigeria",
+      "symbol": "NESTLE",
+      "companyName": "Nestle Nigeria Plc",
+      "maxSupply": "750000000000000000000000",
+      "sector": "Consumer Goods",
+      "description": "Leading food and beverage company in Nigeria",
+      "status": "deployed"
+    },
+    "UNILEVER": {
+      "address": "0x6A8CeE442dC1FCF7545586997516202942e166C7",
+      "contractId": "N/A",
+      "name": "Unilever Nigeria",
+      "symbol": "UNILEVER",
+      "companyName": "Unilever Nigeria Plc",
+      "maxSupply": "600000000000000000000000",
+      "sector": "Consumer Goods",
+      "description": "Multinational consumer goods company",
+      "status": "deployed"
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "lastUpdated": "2025-08-06T00:41:24.681Z",
+  "totalPairs": 5,
+  "pairs": [
+    {
+      "id": "DANGCEM_NGN",
+      "baseToken": {
+        "symbol": "DANGCEM",
+        "name": "Dangote Cement",
+        "address": "0x1111111111111111111111111111111111111111",
+        "contractId": "0.0.1001"
+      },
+      "quoteToken": {
+        "symbol": "NGN",
+        "name": "Nigerian Naira Stablecoin",
+        "address": "0xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "contractId": "0.0.2001"
+      },
+      "price": "420.50",
+      "change": "+2.5%",
+      "volume": "1.2M",
+      "liquidity": "0",
+      "isActive": true,
+      "lastUpdated": "2025-08-06T00:41:24.682Z"
+    },
+    {
+      "id": "GTCO_NGN",
+      "baseToken": {
+        "symbol": "GTCO",
+        "name": "Guaranty Trust Bank",
+        "address": "0x2222222222222222222222222222222222222222",
+        "contractId": "0.0.1002"
+      },
+      "quoteToken": {
+        "symbol": "NGN",
+        "name": "Nigerian Naira Stablecoin",
+        "address": "0xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "contractId": "0.0.2001"
+      },
+      "price": "32.75",
+      "change": "+1.2%",
+      "volume": "2.5M",
+      "liquidity": "0",
+      "isActive": true,
+      "lastUpdated": "2025-08-06T00:41:24.682Z"
+    },
+    {
+      "id": "AIRTELAFRI_NGN",
+      "baseToken": {
+        "symbol": "AIRTELAFRI",
+        "name": "Airtel Africa",
+        "address": "0x3333333333333333333333333333333333333333",
+        "contractId": "0.0.1003"
+      },
+      "quoteToken": {
+        "symbol": "NGN",
+        "name": "Nigerian Naira Stablecoin",
+        "address": "0xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "contractId": "0.0.2001"
+      },
+      "price": "1,850.00",
+      "change": "+3.1%",
+      "volume": "850K",
+      "liquidity": "0",
+      "isActive": true,
+      "lastUpdated": "2025-08-06T00:41:24.682Z"
+    },
+    {
+      "id": "BUACEMENT_NGN",
+      "baseToken": {
+        "symbol": "BUACEMENT",
+        "name": "BUA Cement",
+        "address": "0x4444444444444444444444444444444444444444",
+        "contractId": "0.0.1004"
+      },
+      "quoteToken": {
+        "symbol": "NGN",
+        "name": "Nigerian Naira Stablecoin",
+        "address": "0xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "contractId": "0.0.2001"
+      },
+      "price": "125.30",
+      "change": "-0.8%",
+      "volume": "950K",
+      "liquidity": "0",
+      "isActive": true,
+      "lastUpdated": "2025-08-06T00:41:24.682Z"
+    },
+    {
+      "id": "SEPLAT_NGN",
+      "baseToken": {
+        "symbol": "SEPLAT",
+        "name": "Seplat Energy",
+        "address": "0x5555555555555555555555555555555555555555",
+        "contractId": "0.0.1005"
+      },
+      "quoteToken": {
+        "symbol": "NGN",
+        "name": "Nigerian Naira Stablecoin",
+        "address": "0xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "contractId": "0.0.2001"
+      },
+      "price": "1,650.00",
+      "change": "+4.2%",
+      "volume": "420K",
+      "liquidity": "0",
+      "isActive": true,
+      "lastUpdated": "2025-08-06T00:41:24.682Z"
+    }
+  ]
+}
