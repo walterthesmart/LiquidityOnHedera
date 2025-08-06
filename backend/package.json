@@ -16,9 +16,11 @@
     "deploy:mainnet": "hardhat run scripts/deploy.ts --network bitfinity_mainnet",
     "deploy:all-stocks": "hardhat run scripts/deploy-all-stocks.ts",
     "deploy:all-stocks:testnet": "hardhat run scripts/deploy-all-stocks.ts --network bitfinity_testnet",
-    "deploy:hedera-stocks": "hardhat run scripts/deploy-hedera-stocks.ts --network hedera_testnet",
-    "deploy:hedera-sdk": "node scripts/deploy-hedera-sdk.js",
-    "deploy:all-stocks:mainnet": "hardhat run scripts/deploy-all-stocks.ts --network bitfinity_mainnet",
+
+    "deploy:hedera-sdk": "npx ts-node scripts/deploy-hedera-sdk.ts",
+    "test:hedera-deployment": "npx ts-node scripts/test-hedera-deployment.ts",
+    "deploy:hedera-complete": "npx ts-node scripts/deploy-and-test-hedera.ts",
+
     "// --- VERIFICATION ---": "",
     "verify": "hardhat verify",
     "verify:all": "hardhat run scripts/verify-all.ts",

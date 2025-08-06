@@ -6,6 +6,8 @@
   "scripts": {
     "deploy:hedera": "cd backend && node scripts/deploy-hedera-system.js",
     "deploy:hedera-sdk": "cd backend && npm run deploy:hedera-sdk",
+    "deploy:hedera-complete": "cd backend && npm run deploy:hedera-complete",
+    "test:hedera": "cd backend && npm run test:hedera-deployment",
     "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
     "build:all": "cd backend && npm run compile && cd ../frontend && npm run build",
     "dev:frontend": "cd frontend && npm run dev",

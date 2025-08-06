@@ -59,17 +59,22 @@ const config: HardhatUserConfig = {
       url: process.env.HEDERA_TESTNET_RPC_URL || "https://testnet.hashio.io/api",
       chainId: 296,
       accounts: process.env.HEDERA_PRIVATE_KEY ? [process.env.HEDERA_PRIVATE_KEY] : [],
-      gasPrice: 20000000000, // 20 gwei
-      gas: 8000000,
-      timeout: 60000,
+      gasPrice: 370000000000, // 370 gwei (Hedera minimum)
+      gas: 15000000, // Increased gas limit for complex contracts
+      timeout: 120000, // 2 minutes timeout
+      blockGasLimit: 15000000,
+      allowUnlimitedContractSize: true,
     },
     // Hedera Mainnet
     hedera_mainnet: {
       url: process.env.HEDERA_MAINNET_RPC_URL || "https://mainnet.hashio.io/api",
       chainId: 295,
       accounts: process.env.HEDERA_PRIVATE_KEY ? [process.env.HEDERA_PRIVATE_KEY] : [],
-      gasPrice: "auto",
-      gas: "auto",
+      gasPrice: 370000000000, // 370 gwei (Hedera minimum)
+      gas: 15000000,
+      timeout: 120000,
+      blockGasLimit: 15000000,
+      allowUnlimitedContractSize: true,
     },
   },
   etherscan: {
