@@ -1,10 +1,10 @@
 {
   "network": "hedera-testnet",
-  "lastUpdated": "2025-08-06T17:30:48.245Z",
+  "lastUpdated": "2025-08-06T18:45:00.000Z",
   "deploymentStatus": "complete",
   "contracts": {
     "NGNStablecoin": {
-      "address": "0x545ED512dc51117B22a44c95232Aefa1D62d6492",
+      "address": "0xa03D66E92A4F6b0D766cEC0C5f22424036B39e6A",
       "contractId": "N/A",
       "name": "Nigerian Naira Stablecoin",
       "symbol": "NGN",

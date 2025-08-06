@@ -5,6 +5,7 @@
   "main": "deploy-hedera-system.js",
   "scripts": {
     "deploy": "cd backend && npm run deploy:hedera",
+    "mint:ngn": "cd backend && npm run mint:ngn",
     "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
     "build:all": "cd backend && npm run compile && cd ../frontend && npm run build",
     "dev:frontend": "cd frontend && npm run dev",
