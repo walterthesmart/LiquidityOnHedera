@@ -6,8 +6,8 @@ import { formatEther } from "ethers";
 import {
   NGNStablecoinABI,
   NigerianStockTokenABI,
-  CONTRACT_ADDRESSES,
 } from "@/abis";
+import { CONTRACT_ADDRESSES } from "@/lib/hedera-contract-service";
 
 export interface TokenBalance {
   symbol: string;

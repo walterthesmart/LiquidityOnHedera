@@ -119,7 +119,7 @@ export function FeaturesSection() {
             <CardContent>
               <p className="text-muted-foreground/80">
                 Sell your stocks anytime and receive funds via mobile money or
-                BFT & ICP. Withdrawals are processed within 24 hours.
+                HBAR. Withdrawals are processed within 24 hours.
               </p>
             </CardContent>
             <CardFooter>

@@ -1,14 +1,14 @@
-# Liquidity on ICP EVM - Tokenized Nigerian Stock Trading Platform
+# Liquidity on Hedera - Tokenized Nigerian Stock Trading Platform
 
 ## 🌟 Project Overview
 
-**Liquidity** is a revolutionary decentralized finance (DeFi) platform that democratizes access to Nigerian capital markets through blockchain technology. Built primarily on the **Internet Computer Protocol (ICP)** via the **Bitfinity EVM**, this platform enables seamless trading of tokenized Nigerian Stock Exchange (NGX) assets using a native NGN stablecoin.
+**Liquidity** is a revolutionary decentralized finance (DeFi) platform that democratizes access to Nigerian capital markets through blockchain technology. Built on the **Hedera Hashgraph** network, this platform enables seamless trading of tokenized Nigerian Stock Exchange (NGX) assets using a native NGN stablecoin.
 
-## 🔗 ICP & Bitfinity Network Integration
+## 🔗 Hedera Network Integration
 
-### Why Internet Computer Protocol (ICP)?
+### Why Hedera Hashgraph?
 
-The Internet Computer Protocol provides the perfect foundation for our tokenized asset trading system:
+The Hedera Hashgraph network provides the perfect foundation for our tokenized asset trading system:
 
 - **Scalability**: ICP's unique architecture supports high-throughput transactions essential for financial markets
 - **Cost Efficiency**: Significantly lower transaction costs compared to Ethereum mainnet
@@ -121,12 +121,12 @@ Comprehensive management system for trading pairs:
 
 ## 🚀 Key Features & Innovations
 
-### ICP-Powered Capabilities
+### Hedera-Powered Capabilities
 1. **24/7 Trading**: Unlike traditional NGX hours (9:30 AM - 2:30 PM WAT)
-2. **Instant Settlement**: ICP's near-instant finality
-3. **Low Costs**: Minimal transaction fees on Bitfinity EVM
+2. **Instant Settlement**: Hedera's fast finality (3-5 seconds)
+3. **Low Costs**: Minimal transaction fees with HBAR
 4. **Scalability**: Handle thousands of concurrent trades
-5. **Decentralized Storage**: Leverage ICP's storage capabilities
+5. **Enterprise Security**: Leverage Hedera's enterprise-grade security
 
 ### Nigerian Market Integration
 1. **Local Payment Methods**: Paystack integration (cards, USSD, bank transfers)

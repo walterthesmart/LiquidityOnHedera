@@ -6,7 +6,7 @@ import NGNStablecoinABI from '../abis/NGNStablecoin.json';
 import NigerianStockTokenABI from '../abis/NigerianStockToken.json';
 import StockNGNDEXABI from '../abis/StockNGNDEX.json';
 import TradingPairManagerABI from '../abis/TradingPairManager.json';
-import NigerianStockTokenFactoryABI from '../abis/NigerianStockTokenFactory.json';
+import NigerianStockFactoryABI from '../abis/NigerianStockFactory.json';
 
 // Hedera Testnet configuration
 const HEDERA_TESTNET_CONFIG = {
@@ -36,7 +36,10 @@ export class HederaContractService {
 
   // Get contract instances
   getNGNStablecoin() {
-    const address = contractsConfig.contracts.NGNStablecoin.address;
+    const address = contractsConfig.contracts?.NGNStablecoin?.address;
+    if (!address) {
+      throw new Error('NGN Stablecoin contract not deployed');
+    }
     return new ethers.Contract(
       address,
       NGNStablecoinABI,
@@ -45,11 +48,11 @@ export class HederaContractService {
   }
 
   getStockToken(symbol: string) {
-    const tokenConfig = contractsConfig.stockTokens[symbol];
-    if (!tokenConfig) {
-      throw new Error(`Stock token ${symbol} not found`);
+    const tokenConfig = contractsConfig.stockTokens?.[symbol];
+    if (!tokenConfig?.address) {
+      throw new Error(`Stock token ${symbol} not found or not deployed`);
     }
-    
+
     return new ethers.Contract(
       tokenConfig.address,
       NigerianStockTokenABI,
@@ -58,7 +61,10 @@ export class HederaContractService {
   }
 
   getStockNGNDEX() {
-    const address = contractsConfig.contracts.StockNGNDEX.address;
+    const address = contractsConfig.contracts?.StockNGNDEX?.address;
+    if (!address) {
+      throw new Error('StockNGNDEX contract not deployed');
+    }
     return new ethers.Contract(
       address,
       StockNGNDEXABI,
@@ -67,7 +73,10 @@ export class HederaContractService {
   }
 
   getTradingPairManager() {
-    const address = contractsConfig.contracts.TradingPairManager.address;
+    const address = contractsConfig.contracts?.TradingPairManager?.address;
+    if (!address) {
+      throw new Error('TradingPairManager contract not deployed');
+    }
     return new ethers.Contract(
       address,
       TradingPairManagerABI,
@@ -76,10 +85,13 @@ export class HederaContractService {
   }
 
   getStockFactory() {
-    const address = contractsConfig.contracts.NigerianStockFactory.address;
+    const address = contractsConfig.contracts?.NigerianStockFactory?.address;
+    if (!address) {
+      throw new Error('NigerianStockFactory contract not deployed');
+    }
     return new ethers.Contract(
       address,
-      NigerianStockTokenFactoryABI,
+      NigerianStockFactoryABI,
       this.signer || this.provider
     );
   }
@@ -258,14 +270,14 @@ export const hederaContractService = new HederaContractService();
 
 // Export contract addresses for easy access
 export const CONTRACT_ADDRESSES = {
-  NGN_STABLECOIN: contractsConfig.contracts.NGNStablecoin.address,
-  STOCK_FACTORY: contractsConfig.contracts.NigerianStockFactory.address,
-  STOCK_NGN_DEX: contractsConfig.contracts.StockNGNDEX.address,
-  TRADING_PAIR_MANAGER: contractsConfig.contracts.TradingPairManager.address,
+  NGN_STABLECOIN: contractsConfig.contracts?.NGNStablecoin?.address || '',
+  STOCK_FACTORY: contractsConfig.contracts?.NigerianStockFactory?.address || '',
+  STOCK_NGN_DEX: contractsConfig.contracts?.StockNGNDEX?.address || '',
+  TRADING_PAIR_MANAGER: contractsConfig.contracts?.TradingPairManager?.address || '',
   STOCK_TOKENS: Object.fromEntries(
-    Object.entries(contractsConfig.stockTokens).map(([symbol, config]) => [
+    Object.entries(contractsConfig.stockTokens || {}).map(([symbol, config]) => [
       symbol,
-      config.address
+      config?.address || ''
     ])
   )
 };

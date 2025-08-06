@@ -1,14 +1,17 @@
 'use client';
 
 import React from 'react';
+import { useHederaContracts } from '@/hooks/use-hedera-contracts';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { CheckCircle, AlertCircle, ExternalLink, Copy, Terminal } from 'lucide-react';
+import { CheckCircle, AlertCircle, ExternalLink, Copy, Terminal, Zap, Wallet } from 'lucide-react';
 import contractsConfig from '@/config/hedera-contracts.json';
+import ContractTestComponent from './ContractTestComponent';
 
 export default function DeploymentStatus() {
+  const contracts = useHederaContracts();
   const isTestData = contractsConfig.contracts.NGNStablecoin.address.startsWith('0xAAAAA');
 
   const copyToClipboard = (text: string) => {
@@ -17,6 +20,98 @@ export default function DeploymentStatus() {
 
   return (
     <div className="space-y-6">
+      {/* Live Integration Status */}
+      <Card>
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <div>
+              <CardTitle className="flex items-center space-x-2">
+                <Zap className="h-5 w-5 text-green-500" />
+                <span>Live Integration Status</span>
+              </CardTitle>
+              <CardDescription>
+                Real-time contract integration and wallet connectivity
+              </CardDescription>
+            </div>
+            <Badge variant={contracts.isFullyDeployed ? "default" : "secondary"}>
+              {contracts.isFullyDeployed ? "Fully Integrated" : "Partial Integration"}
+            </Badge>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span>Contract Service</span>
+                <Badge variant="default">
+                  <CheckCircle className="h-3 w-3 mr-1" />
+                  Active
+                </Badge>
+              </div>
+              <div className="flex items-center justify-between">
+                <span>Live Trading</span>
+                <Badge variant={contracts.isFullyDeployed ? "default" : "secondary"}>
+                  {contracts.isFullyDeployed ? (
+                    <>
+                      <CheckCircle className="h-3 w-3 mr-1" />
+                      Available
+                    </>
+                  ) : (
+                    <>
+                      <AlertCircle className="h-3 w-3 mr-1" />
+                      Pending
+                    </>
+                  )}
+                </Badge>
+              </div>
+              <div className="flex items-center justify-between">
+                <span>Wallet Connection</span>
+                <Badge variant={contracts.isConnected ? "default" : "outline"}>
+                  {contracts.isConnected ? (
+                    <>
+                      <Wallet className="h-3 w-3 mr-1" />
+                      Connected
+                    </>
+                  ) : (
+                    "Not Connected"
+                  )}
+                </Badge>
+              </div>
+            </div>
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span>Available Stocks</span>
+                <Badge variant="outline">
+                  {contracts.availableStocks.length} Tokens
+                </Badge>
+              </div>
+              <div className="flex items-center justify-between">
+                <span>Network</span>
+                <Badge variant="outline">
+                  Hedera Testnet
+                </Badge>
+              </div>
+              <div className="flex items-center justify-between">
+                <span>Portfolio Tracking</span>
+                <Badge variant={contracts.isConnected ? "default" : "outline"}>
+                  {contracts.isConnected ? "Active" : "Connect Wallet"}
+                </Badge>
+              </div>
+            </div>
+          </div>
+
+          {contracts.isConnected && (
+            <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg">
+              <p className="text-green-800 text-sm">
+                <strong>Wallet Connected:</strong> {contracts.userAddress?.slice(0, 6)}...{contracts.userAddress?.slice(-4)}
+              </p>
+              <p className="text-green-700 text-sm mt-1">
+                NGN Balance: {parseFloat(contracts.ngnBalance).toFixed(2)} NGN
+              </p>
+            </div>
+          )}
+        </CardContent>
+      </Card>
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">
@@ -183,6 +278,19 @@ export default function DeploymentStatus() {
           </CardContent>
         </Card>
       )}
+
+      {/* Contract Service Test */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Contract Service Test</CardTitle>
+          <CardDescription>
+            Test the contract service integration and ABI loading
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ContractTestComponent />
+        </CardContent>
+      </Card>
     </div>
   );
 }

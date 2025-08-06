@@ -48,8 +48,8 @@ import { toast } from "sonner";
 import {
   NGNStablecoinABI,
   NigerianStockTokenABI,
-  CONTRACT_ADDRESSES,
 } from "@/abis";
+import { CONTRACT_ADDRESSES } from "@/lib/hedera-contract-service";
 import { useTokenBalances } from "@/hooks/use-token-balances";
 import { getTransactionUrl, formatAddress } from "@/lib/explorer-utils";
 
