@@ -138,9 +138,10 @@ export const config: ReturnType<typeof getDefaultConfig> = getDefaultConfig({
   projectId,
   chains: [
     // Primary networks for Nigerian stock trading
+    hederaTestnet,
+    hederaMainnet,
     bitfinityTestnet,
     bitfinityMainnet,
-    sepolia, // Ethereum Sepolia testnet for additional testing
     // Include popular chains for broader wallet support
     mainnet,
     polygon,

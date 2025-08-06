@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { useAccount, useChainId, useSwitchChain } from 'wagmi';
-import { sepolia } from 'wagmi/chains';
 import { hederaTestnet, hederaMainnet, bitfinityTestnet, bitfinityMainnet } from '@/config';
 import { SUPPORTED_NETWORKS } from '@/config/networks';
 import { getContractConfig } from '@/config/contracts';
@@ -16,15 +15,13 @@ import {
 import { ChevronDown, CheckCircle, AlertCircle } from 'lucide-react';
 
 const SUPPORTED_CHAIN_IDS = [
-  sepolia.id, // Primary - has deployed contracts
-  hederaTestnet.id,
+  hederaTestnet.id, // Primary - has deployed contracts
   hederaMainnet.id,
   bitfinityTestnet.id,
   bitfinityMainnet.id,
 ];
 
 const CHAIN_NAMES = {
-  [sepolia.id]: 'Ethereum Sepolia',
   [hederaTestnet.id]: 'Hedera Testnet',
   [hederaMainnet.id]: 'Hedera Mainnet',
   [bitfinityTestnet.id]: 'Bitfinity EVM Testnet',
@@ -32,7 +29,6 @@ const CHAIN_NAMES = {
 };
 
 const CHAIN_ICONS = {
-  [sepolia.id]: '🔷',
   [hederaTestnet.id]: '🌐',
   [hederaMainnet.id]: '🌐',
   [bitfinityTestnet.id]: '🔥',
@@ -48,8 +44,8 @@ export function NetworkSwitcher() {
   const contractConfig = getContractConfig(chainId);
   const hasContracts = contractConfig && contractConfig.totalTokens > 0;
 
-  // Default to Sepolia if not connected or on unsupported network
-  const currentChainId = isConnected && SUPPORTED_CHAIN_IDS.includes(chainId) ? chainId : sepolia.id;
+  // Default to Hedera Testnet if not connected or on unsupported network
+  const currentChainId = isConnected && SUPPORTED_CHAIN_IDS.includes(chainId) ? chainId : hederaTestnet.id;
   const currentChainName = CHAIN_NAMES[currentChainId] || 'Unknown Network';
   const currentChainIcon = CHAIN_ICONS[currentChainId] || '❓';
 
@@ -87,7 +83,7 @@ export function NetworkSwitcher() {
             {hasContracts && (
               <CheckCircle className="h-4 w-4 text-green-500" />
             )}
-            {!hasContracts && currentChainId !== sepolia.id && (
+            {!hasContracts && currentChainId !== hederaTestnet.id && (
               <AlertCircle className="h-4 w-4 text-yellow-500" />
             )}
           </div>
@@ -102,7 +98,7 @@ export function NetworkSwitcher() {
           const config = getContractConfig(supportedChainId);
           const hasDeployedContracts = config && config.totalTokens > 0;
           const isCurrentChain = supportedChainId === chainId;
-          const isPrimary = supportedChainId === sepolia.id;
+          const isPrimary = supportedChainId === hederaTestnet.id;
 
           return (
             <DropdownMenuItem
@@ -146,7 +142,7 @@ export function NetworkSwitcher() {
         })}
         
         <div className="px-2 py-1 text-xs text-muted-foreground border-t mt-1">
-          <p>💡 Sepolia has all 38 Nigerian stocks deployed</p>
+          <p>💡 Hedera Testnet has all 12 Nigerian stocks deployed</p>
           <p>🚀 Other networks coming soon</p>
         </div>
       </DropdownMenuContent>
