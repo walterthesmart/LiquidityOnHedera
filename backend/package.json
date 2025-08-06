@@ -1,7 +1,7 @@
 {
-  "name": "liquidity-bitfinity-contracts",
-  "version": "3.0.1",
-  "description": "Bitfinity EVM smart contracts for Nigerian Stock Exchange tokenization",
+  "name": "liquidity-contracts",
+  "version": "3.0.2",
+  "description": "smart contracts for Nigerian Stock Exchange tokenization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

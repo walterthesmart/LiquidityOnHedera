@@ -1,7 +1,7 @@
 {
   "network": "hedera-testnet",
-  "lastUpdated": "2025-08-06T17:30:48.245Z",
-  "deploymentStatus": "complete",
+  "deployer": "0x9aF836cCbA4BaA530894B12760208ccAF548c63e",
+  "deployedAt": "2025-08-06T17:30:48.245Z",
   "contracts": {
     "NGNStablecoin": {
       "address": "0x545ED512dc51117B22a44c95232Aefa1D62d6492",

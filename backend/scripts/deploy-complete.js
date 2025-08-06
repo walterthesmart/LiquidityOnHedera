@@ -3,13 +3,20 @@ const { ethers } = require('ethers');
 const fs = require('fs');
 const path = require('path');
 
-// Nigerian stocks data
+// Nigerian stocks data - Top 10 NSE stocks
 const NIGERIAN_STOCKS = [
   { symbol: 'DANGCEM', name: 'Dangote Cement', companyName: 'Dangote Cement Plc', maxSupply: '1000000', sector: 'Industrial Goods', description: 'Leading cement manufacturer in Nigeria and Africa' },
   { symbol: 'GTCO', name: 'Guaranty Trust Bank', companyName: 'Guaranty Trust Holding Company Plc', maxSupply: '2000000', sector: 'Banking', description: 'One of Nigeria\'s leading financial institutions' },
   { symbol: 'AIRTELAFRI', name: 'Airtel Africa', companyName: 'Airtel Africa Plc', maxSupply: '1500000', sector: 'Telecommunications', description: 'Leading telecommunications company across Africa' },
   { symbol: 'BUACEMENT', name: 'BUA Cement', companyName: 'BUA Cement Plc', maxSupply: '800000', sector: 'Industrial Goods', description: 'Major cement producer in Nigeria' },
-  { symbol: 'SEPLAT', name: 'Seplat Energy', companyName: 'Seplat Energy Plc', maxSupply: '600000', sector: 'Oil & Gas', description: 'Independent oil and gas company in Nigeria' }
+  { symbol: 'SEPLAT', name: 'Seplat Energy', companyName: 'Seplat Energy Plc', maxSupply: '600000', sector: 'Oil & Gas', description: 'Independent oil and gas company in Nigeria' },
+  { symbol: 'MTNN', name: 'MTN Nigeria', companyName: 'MTN Nigeria Communications Plc', maxSupply: '2100000', sector: 'Telecommunications', description: 'Leading telecommunications provider in Nigeria' },
+  { symbol: 'ZENITHBANK', name: 'Zenith Bank', companyName: 'Zenith Bank Plc', maxSupply: '3100000', sector: 'Banking', description: 'One of Nigeria\'s tier-1 commercial banks' },
+  { symbol: 'ACCESS', name: 'Access Bank', companyName: 'Access Holdings Plc', maxSupply: '3600000', sector: 'Banking', description: 'Leading commercial bank in Nigeria' },
+  { symbol: 'FBNH', name: 'FBN Holdings', companyName: 'FBN Holdings Plc', maxSupply: '3500000', sector: 'Banking', description: 'Holding company for First Bank of Nigeria' },
+  { symbol: 'UBA', name: 'United Bank for Africa', companyName: 'United Bank for Africa Plc', maxSupply: '3800000', sector: 'Banking', description: 'Pan-African financial services group' },
+  { symbol: 'NESTLE', name: 'Nestle Nigeria', companyName: 'Nestle Nigeria Plc', maxSupply: '750000', sector: 'Consumer Goods', description: 'Leading food and beverage company in Nigeria' },
+  { symbol: 'UNILEVER', name: 'Unilever Nigeria', companyName: 'Unilever Nigeria Plc', maxSupply: '600000', sector: 'Consumer Goods', description: 'Multinational consumer goods company' }
 ];
 
 // Utility functions
@@ -104,7 +111,11 @@ async function updateStocksData(deploymentResult) {
 }
 
 function getRandomPrice(symbol) {
-  const prices = { DANGCEM: '420.50', GTCO: '32.75', AIRTELAFRI: '1850.00', BUACEMENT: '125.30', SEPLAT: '1650.00' };
+  const prices = {
+    DANGCEM: '420.50', GTCO: '32.75', AIRTELAFRI: '1850.00', BUACEMENT: '125.30', SEPLAT: '1650.00',
+    MTNN: '285.00', ZENITHBANK: '28.50', ACCESS: '12.85', FBNH: '18.20', UBA: '9.75',
+    NESTLE: '1450.00', UNILEVER: '18.50'
+  };
   return prices[symbol] || '100.00';
 }
 
@@ -126,7 +137,7 @@ function getRandomMarketCap() {
 async function main() {
   try {
     log('🚀 Starting Complete Hedera Deployment & Frontend Integration...', 'cyan');
-    log('=' * 70, 'cyan');
+    log('='.repeat(70), 'cyan');
     
     // Setup provider and wallet
     const provider = new ethers.JsonRpcProvider(
@@ -186,9 +197,9 @@ async function main() {
     log('\n📦 Step 3: Deploying StockNGNDEX...', 'cyan');
     const dexContract = await readCompiledContract('StockNGNDEX');
     const DEXFactory = new ethers.ContractFactory(dexContract.abi, dexContract.bytecode, wallet);
-    
+
     const dexConfig = { defaultFeeRate: 30, maxPriceImpact: 1000, minLiquidity: ethers.parseEther('1000'), swapDeadline: 1800, emergencyMode: false };
-    const { address: dexAddress } = await deployContract(DEXFactory, [ngnAddress, dexConfig.defaultFeeRate, dexConfig.maxPriceImpact, dexConfig.minLiquidity, dexConfig.swapDeadline, dexConfig.emergencyMode], 6000000, 'StockNGNDEX');
+    const { address: dexAddress } = await deployContract(DEXFactory, [ngnAddress, wallet.address, dexConfig], 6000000, 'StockNGNDEX');
     deploymentResult.contracts.StockNGNDEX = {
       address: dexAddress, contractId: 'N/A', name: 'Stock NGN DEX', status: 'deployed'
     };
@@ -197,8 +208,17 @@ async function main() {
     log('\n📦 Step 4: Deploying TradingPairManager...', 'cyan');
     const pairContract = await readCompiledContract('TradingPairManager');
     const PairFactory = new ethers.ContractFactory(pairContract.abi, pairContract.bytecode, wallet);
-    
-    const { address: pairAddress } = await deployContract(PairFactory, [dexAddress, ngnAddress, factoryAddress], 4000000, 'TradingPairManager');
+
+    const managerConfig = {
+      defaultFeeRate: 30, // 0.3%
+      defaultLiquidityTarget: ethers.parseEther('10000'), // 10,000 NGN
+      defaultRebalanceThreshold: 500, // 5%
+      maxPairsPerBatch: 10,
+      autoLiquidityEnabled: true,
+      emergencyWithdrawDelay: 86400 // 24 hours
+    };
+
+    const { address: pairAddress } = await deployContract(PairFactory, [ngnAddress, dexAddress, factoryAddress, wallet.address, managerConfig], 4000000, 'TradingPairManager');
     deploymentResult.contracts.TradingPairManager = {
       address: pairAddress, contractId: 'N/A', name: 'Trading Pair Manager', status: 'deployed'
     };
@@ -243,9 +263,9 @@ async function main() {
     await updateStocksData(deploymentResult);
     
     // Step 8: Summary
-    log('\n' + '=' * 70, 'cyan');
+    log('\n' + '='.repeat(70), 'cyan');
     log('🎉 COMPLETE DEPLOYMENT SUCCESSFUL!', 'green');
-    log('=' * 70, 'cyan');
+    log('='.repeat(70), 'cyan');
     
     log(`\n📊 Deployment Summary:`, 'cyan');
     log(`   • NGN Stablecoin: ${deploymentResult.contracts.NGNStablecoin.address}`, 'blue');

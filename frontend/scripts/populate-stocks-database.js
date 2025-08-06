@@ -1,82 +1,79 @@
 const fs = require('fs');
 const path = require('path');
 
-// Nigerian stocks data with detailed information
+// Nigerian stocks data with detailed information - Top 12 NSE stocks
 const NIGERIAN_STOCKS = [
   {
-    symbol: 'DANGCEM',
-    name: 'Dangote Cement',
-    companyName: 'Dangote Cement Plc',
-    maxSupply: '1000000',
-    sector: 'Industrial Goods',
-    description: 'Leading cement manufacturer in Nigeria and Africa',
-    marketCap: '4.2T',
-    price: '420.50',
-    change: '+2.5%',
-    volume: '1.2M',
-    logo: '/images/stocks/dangcem.png',
-    contractAddress: '0x' + '1'.repeat(40), // Placeholder
-    contractId: '0.0.1001' // Placeholder
+    symbol: 'DANGCEM', name: 'Dangote Cement', companyName: 'Dangote Cement Plc', maxSupply: '1000000',
+    sector: 'Industrial Goods', description: 'Leading cement manufacturer in Nigeria and Africa',
+    marketCap: '4.2T', price: '420.50', change: '+2.5%', volume: '1.2M',
+    logo: '/images/stocks/dangcem.png', contractAddress: '0x' + '1'.repeat(40), contractId: '0.0.1001'
   },
   {
-    symbol: 'GTCO',
-    name: 'Guaranty Trust Bank',
-    companyName: 'Guaranty Trust Holding Company Plc',
-    maxSupply: '2000000',
-    sector: 'Banking',
-    description: 'One of Nigeria\'s leading financial institutions',
-    marketCap: '1.8T',
-    price: '32.75',
-    change: '+1.2%',
-    volume: '2.5M',
-    logo: '/images/stocks/gtco.png',
-    contractAddress: '0x' + '2'.repeat(40), // Placeholder
-    contractId: '0.0.1002' // Placeholder
+    symbol: 'GTCO', name: 'Guaranty Trust Bank', companyName: 'Guaranty Trust Holding Company Plc', maxSupply: '2000000',
+    sector: 'Banking', description: 'One of Nigeria\'s leading financial institutions',
+    marketCap: '1.8T', price: '32.75', change: '+1.2%', volume: '2.5M',
+    logo: '/images/stocks/gtco.png', contractAddress: '0x' + '2'.repeat(40), contractId: '0.0.1002'
   },
   {
-    symbol: 'AIRTELAFRI',
-    name: 'Airtel Africa',
-    companyName: 'Airtel Africa Plc',
-    maxSupply: '1500000',
-    sector: 'Telecommunications',
-    description: 'Leading telecommunications company across Africa',
-    marketCap: '2.1T',
-    price: '1,850.00',
-    change: '+3.1%',
-    volume: '850K',
-    logo: '/images/stocks/airtel.png',
-    contractAddress: '0x' + '3'.repeat(40), // Placeholder
-    contractId: '0.0.1003' // Placeholder
+    symbol: 'AIRTELAFRI', name: 'Airtel Africa', companyName: 'Airtel Africa Plc', maxSupply: '1500000',
+    sector: 'Telecommunications', description: 'Leading telecommunications company across Africa',
+    marketCap: '2.1T', price: '1,850.00', change: '+3.1%', volume: '850K',
+    logo: '/images/stocks/airtel.png', contractAddress: '0x' + '3'.repeat(40), contractId: '0.0.1003'
   },
   {
-    symbol: 'BUACEMENT',
-    name: 'BUA Cement',
-    companyName: 'BUA Cement Plc',
-    maxSupply: '800000',
-    sector: 'Industrial Goods',
-    description: 'Major cement producer in Nigeria',
-    marketCap: '1.5T',
-    price: '125.30',
-    change: '-0.8%',
-    volume: '950K',
-    logo: '/images/stocks/buacement.png',
-    contractAddress: '0x' + '4'.repeat(40), // Placeholder
-    contractId: '0.0.1004' // Placeholder
+    symbol: 'BUACEMENT', name: 'BUA Cement', companyName: 'BUA Cement Plc', maxSupply: '800000',
+    sector: 'Industrial Goods', description: 'Major cement producer in Nigeria',
+    marketCap: '1.5T', price: '125.30', change: '-0.8%', volume: '950K',
+    logo: '/images/stocks/buacement.png', contractAddress: '0x' + '4'.repeat(40), contractId: '0.0.1004'
   },
   {
-    symbol: 'SEPLAT',
-    name: 'Seplat Energy',
-    companyName: 'Seplat Energy Plc',
-    maxSupply: '600000',
-    sector: 'Oil & Gas',
-    description: 'Independent oil and gas company in Nigeria',
-    marketCap: '980B',
-    price: '1,650.00',
-    change: '+4.2%',
-    volume: '420K',
-    logo: '/images/stocks/seplat.png',
-    contractAddress: '0x' + '5'.repeat(40), // Placeholder
-    contractId: '0.0.1005' // Placeholder
+    symbol: 'SEPLAT', name: 'Seplat Energy', companyName: 'Seplat Energy Plc', maxSupply: '600000',
+    sector: 'Oil & Gas', description: 'Independent oil and gas company in Nigeria',
+    marketCap: '980B', price: '1,650.00', change: '+4.2%', volume: '420K',
+    logo: '/images/stocks/seplat.png', contractAddress: '0x' + '5'.repeat(40), contractId: '0.0.1005'
+  },
+  {
+    symbol: 'MTNN', name: 'MTN Nigeria', companyName: 'MTN Nigeria Communications Plc', maxSupply: '2100000',
+    sector: 'Telecommunications', description: 'Leading telecommunications provider in Nigeria',
+    marketCap: '5.8T', price: '285.00', change: '+1.8%', volume: '1.8M',
+    logo: '/images/stocks/mtn.png', contractAddress: '0x' + '6'.repeat(40), contractId: '0.0.1006'
+  },
+  {
+    symbol: 'ZENITHBANK', name: 'Zenith Bank', companyName: 'Zenith Bank Plc', maxSupply: '3100000',
+    sector: 'Banking', description: 'One of Nigeria\'s tier-1 commercial banks',
+    marketCap: '890B', price: '28.50', change: '+0.7%', volume: '3.2M',
+    logo: '/images/stocks/zenith.png', contractAddress: '0x' + '7'.repeat(40), contractId: '0.0.1007'
+  },
+  {
+    symbol: 'ACCESS', name: 'Access Bank', companyName: 'Access Holdings Plc', maxSupply: '3600000',
+    sector: 'Banking', description: 'Leading commercial bank in Nigeria',
+    marketCap: '460B', price: '12.85', change: '-0.3%', volume: '4.1M',
+    logo: '/images/stocks/access.png', contractAddress: '0x' + '8'.repeat(40), contractId: '0.0.1008'
+  },
+  {
+    symbol: 'FBNH', name: 'FBN Holdings', companyName: 'FBN Holdings Plc', maxSupply: '3500000',
+    sector: 'Banking', description: 'Holding company for First Bank of Nigeria',
+    marketCap: '650B', price: '18.20', change: '+2.1%', volume: '2.8M',
+    logo: '/images/stocks/fbn.png', contractAddress: '0x' + '9'.repeat(40), contractId: '0.0.1009'
+  },
+  {
+    symbol: 'UBA', name: 'United Bank for Africa', companyName: 'United Bank for Africa Plc', maxSupply: '3800000',
+    sector: 'Banking', description: 'Pan-African financial services group',
+    marketCap: '370B', price: '9.75', change: '+1.5%', volume: '5.2M',
+    logo: '/images/stocks/uba.png', contractAddress: '0x' + 'A'.repeat(40), contractId: '0.0.1010'
+  },
+  {
+    symbol: 'NESTLE', name: 'Nestle Nigeria', companyName: 'Nestle Nigeria Plc', maxSupply: '750000',
+    sector: 'Consumer Goods', description: 'Leading food and beverage company in Nigeria',
+    marketCap: '1.1T', price: '1,450.00', change: '+0.9%', volume: '180K',
+    logo: '/images/stocks/nestle.png', contractAddress: '0x' + 'B'.repeat(40), contractId: '0.0.1011'
+  },
+  {
+    symbol: 'UNILEVER', name: 'Unilever Nigeria', companyName: 'Unilever Nigeria Plc', maxSupply: '600000',
+    sector: 'Consumer Goods', description: 'Multinational consumer goods company',
+    marketCap: '110B', price: '18.50', change: '-1.2%', volume: '320K',
+    logo: '/images/stocks/unilever.png', contractAddress: '0x' + 'C'.repeat(40), contractId: '0.0.1012'
   }
 ];
 

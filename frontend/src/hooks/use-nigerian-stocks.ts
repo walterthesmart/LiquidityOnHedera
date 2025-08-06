@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useContractConfig } from './use-contract-config';
 
-// Import the local data files
+// Import the local data files with live contract addresses
 import stocksData from '../data/nigerian-stocks.json';
 import tradingPairs from '../data/trading-pairs.json';
 import marketData from '../data/market-data.json';

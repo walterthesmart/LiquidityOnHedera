@@ -10,6 +10,7 @@ import {
   IconChartCandle,
   IconBuildingBank,
   IconRocket,
+  IconWallet,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { motion } from "motion/react";
@@ -33,6 +34,11 @@ export function PlatformSidebar() {
       label: "Nigerian Stocks",
       href: "/nigerian-stocks",
       icon: <IconBuildingBank className="h-5 w-5 shrink-0" />,
+    },
+    {
+      label: "Portfolio",
+      href: "/portfolio",
+      icon: <IconWallet className="h-5 w-5 shrink-0" />,
     },
     {
       label: "Marketplace",
