@@ -18,10 +18,11 @@ import {
 import fs from 'fs';
 import path from 'path';
 import { Buffer } from 'buffer';
+import Long from 'long';
 import {
   GAS_LIMITS,
   TRANSACTION_FEES
-} from './utils/hedera-gas-config.js';
+} from './utils/hedera-gas-config';
 
 // Type definitions
 interface StockData {
@@ -369,8 +370,8 @@ export async function main(): Promise<DeploymentResultData | null> {
       .addAddress(operatorId.toSolidityAddress()) // deployer as initial admin
       .addString(stablecoinConfig.name)
       .addString(stablecoinConfig.symbol)
-      .addUint256(stablecoinConfig.maxSupply)
-      .addUint256(stablecoinConfig.mintingCap)
+      .addUint256(Long.fromString(stablecoinConfig.maxSupply))
+      .addUint256(Long.fromString(stablecoinConfig.mintingCap))
       .addBool(stablecoinConfig.mintingEnabled)
       .addBool(stablecoinConfig.burningEnabled)
       .addBool(stablecoinConfig.transfersEnabled);
@@ -410,7 +411,7 @@ export async function main(): Promise<DeploymentResultData | null> {
       .addAddress(ngnDeployment.contractAddress) // NGN stablecoin address
       .addUint256(dexConfig.defaultFeeRate)
       .addUint256(dexConfig.maxPriceImpact)
-      .addUint256(dexConfig.minLiquidity)
+      .addUint256(Long.fromString(dexConfig.minLiquidity))
       .addUint256(dexConfig.swapDeadline)
       .addBool(dexConfig.emergencyMode);
 
@@ -454,7 +455,7 @@ export async function main(): Promise<DeploymentResultData | null> {
         .addString(stock.name)
         .addString(stock.symbol)
         .addString(stock.companyName)
-        .addUint256(`${stock.maxSupply}000000000000000000`) // Convert to 18 decimals
+        .addUint256(Long.fromString(`${stock.maxSupply}000000000000000000`)) // Convert to 18 decimals
         .addAddress(operatorId.toSolidityAddress()); // Initial owner
 
       const stockDeployment = await deployContract(`${stock.symbol}Token`, stockTokenBytecodeFileId, stockConstructorParams, 'TOKEN_CONTRACT');

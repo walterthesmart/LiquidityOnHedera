@@ -8,6 +8,8 @@ import {
   IconSocial,
   IconUserExclamation,
   IconChartCandle,
+  IconBuildingBank,
+  IconRocket,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { motion } from "motion/react";
@@ -23,6 +25,16 @@ export function PlatformSidebar() {
   };
   const links = [
     {
+      label: "Dashboard",
+      href: "/dashboard",
+      icon: <IconBrandTabler className=" h-5 w-5 shrink-0" />,
+    },
+    {
+      label: "Nigerian Stocks",
+      href: "/nigerian-stocks",
+      icon: <IconBuildingBank className="h-5 w-5 shrink-0" />,
+    },
+    {
       label: "Marketplace",
       href: "/marketplace",
       icon: <IconSocial className="h-5 w-5 shrink-0" />,
@@ -33,9 +45,9 @@ export function PlatformSidebar() {
       icon: <IconChartCandle className="h-5 w-5 shrink-0" />,
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
-      icon: <IconBrandTabler className=" h-5 w-5 shrink-0" />,
+      label: "Deployment",
+      href: "/deployment",
+      icon: <IconRocket className="h-5 w-5 shrink-0" />,
     },
     // {
     //   label: "Settings",

@@ -24,7 +24,8 @@
         "test:watch": "jest --watch",
         "test:coverage": "jest --coverage",
         "check:env": "node scripts/check-env.js",
-        "debug:network": "echo 'Visit http://localhost:3000/debug-network to test network connectivity'"
+        "debug:network": "echo 'Visit http://localhost:3000/debug-network to test network connectivity'",
+        "populate:stocks": "node scripts/populate-stocks-database.js"
     },
     "dependencies": {
         "@clerk/nextjs": "^6.18.5",

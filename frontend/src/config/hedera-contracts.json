@@ -1,0 +1,80 @@
+{
+  "network": "hedera-testnet",
+  "lastUpdated": "2025-08-06T00:41:24.676Z",
+  "contracts": {
+    "NGNStablecoin": {
+      "address": "0xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "contractId": "0.0.2001",
+      "name": "Nigerian Naira Stablecoin",
+      "symbol": "NGN",
+      "decimals": 18
+    },
+    "NigerianStockFactory": {
+      "address": "0xBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+      "contractId": "0.0.2002",
+      "name": "Nigerian Stock Factory"
+    },
+    "StockNGNDEX": {
+      "address": "0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+      "contractId": "0.0.2003",
+      "name": "Stock NGN DEX"
+    },
+    "TradingPairManager": {
+      "address": "0xDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD",
+      "contractId": "0.0.2004",
+      "name": "Trading Pair Manager"
+    }
+  },
+  "stockTokens": {
+    "DANGCEM": {
+      "address": "0x1111111111111111111111111111111111111111",
+      "contractId": "0.0.1001",
+      "name": "Dangote Cement",
+      "symbol": "DANGCEM",
+      "companyName": "Dangote Cement Plc",
+      "maxSupply": "1000000",
+      "sector": "Industrial Goods",
+      "description": "Leading cement manufacturer in Nigeria and Africa"
+    },
+    "GTCO": {
+      "address": "0x2222222222222222222222222222222222222222",
+      "contractId": "0.0.1002",
+      "name": "Guaranty Trust Bank",
+      "symbol": "GTCO",
+      "companyName": "Guaranty Trust Holding Company Plc",
+      "maxSupply": "2000000",
+      "sector": "Banking",
+      "description": "One of Nigeria's leading financial institutions"
+    },
+    "AIRTELAFRI": {
+      "address": "0x3333333333333333333333333333333333333333",
+      "contractId": "0.0.1003",
+      "name": "Airtel Africa",
+      "symbol": "AIRTELAFRI",
+      "companyName": "Airtel Africa Plc",
+      "maxSupply": "1500000",
+      "sector": "Telecommunications",
+      "description": "Leading telecommunications company across Africa"
+    },
+    "BUACEMENT": {
+      "address": "0x4444444444444444444444444444444444444444",
+      "contractId": "0.0.1004",
+      "name": "BUA Cement",
+      "symbol": "BUACEMENT",
+      "companyName": "BUA Cement Plc",
+      "maxSupply": "800000",
+      "sector": "Industrial Goods",
+      "description": "Major cement producer in Nigeria"
+    },
+    "SEPLAT": {
+      "address": "0x5555555555555555555555555555555555555555",
+      "contractId": "0.0.1005",
+      "name": "Seplat Energy",
+      "symbol": "SEPLAT",
+      "companyName": "Seplat Energy Plc",
+      "maxSupply": "600000",
+      "sector": "Oil & Gas",
+      "description": "Independent oil and gas company in Nigeria"
+    }
+  }
+}

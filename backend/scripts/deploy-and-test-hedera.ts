@@ -1,8 +1,8 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { main as deployContracts } from './deploy-hedera-sdk.js';
-import { runDeploymentTests } from './test-hedera-deployment.js';
+import { main as deployContracts } from './deploy-hedera-sdk';
+import { runDeploymentTests } from './test-hedera-deployment';
 import { Client, AccountId, PrivateKey, AccountBalanceQuery } from '@hashgraph/sdk';
 import { execSync } from 'child_process';
 
