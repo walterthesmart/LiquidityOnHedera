@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useMemo } from "react";
-import { useAccount, useChainId, useReadContract } from "wagmi";
+import { useAccount, useReadContract } from "wagmi";
 import { formatEther } from "ethers";
 import {
   NGNStablecoinABI,
@@ -20,19 +20,18 @@ export interface TokenBalance {
 
 export const useTokenBalances = () => {
   const { address } = useAccount();
-  const chainId = useChainId();
 
   // Get contract addresses for current network
-  const contractAddresses = chainId ? CONTRACT_ADDRESSES[chainId as keyof typeof CONTRACT_ADDRESSES] : null;
+  const contractAddresses = CONTRACT_ADDRESSES;
 
   // NGN Stablecoin balance with error handling and retry logic
   const { data: ngnBalance, refetch: refetchNGN } = useReadContract({
-    address: contractAddresses?.ngnStablecoin as `0x${string}`,
+    address: contractAddresses?.NGN_STABLECOIN as `0x${string}`,
     abi: NGNStablecoinABI,
     functionName: "balanceOf",
     args: [address],
     query: {
-      enabled: !!address && !!contractAddresses?.ngnStablecoin,
+      enabled: !!address && !!contractAddresses?.NGN_STABLECOIN,
       retry: 3,
       retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
       staleTime: 30000, // 30 seconds
@@ -55,7 +54,7 @@ export const useTokenBalances = () => {
   ], []);
 
   // Type-safe access to token addresses
-  const tokens = contractAddresses?.tokens as Record<string, string> | undefined;
+  const tokens = contractAddresses?.STOCK_TOKENS as Record<string, string> | undefined;
 
   // Individual stock token balance hooks with error handling and retry logic
   const dangcemBalance = useReadContract({
@@ -236,7 +235,7 @@ export const useTokenBalances = () => {
       balances.push({
         symbol: "NGN",
         balance: formatEther(ngnBalance.toString()),
-        address: contractAddresses.ngnStablecoin,
+        address: contractAddresses.NGN_STABLECOIN,
         name: "Nigerian Naira Stablecoin",
         decimals: 18,
         isStablecoin: true,

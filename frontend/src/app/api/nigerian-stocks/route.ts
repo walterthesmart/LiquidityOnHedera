@@ -162,13 +162,13 @@ async function handleGetMarketStats(chainId: number) {
     
     // Calculate market statistics
     const totalStocks = stocks.length;
-    const totalMarketCap = stocks.reduce((sum, stock) => sum + (stock.marketCap || 0), 0);
+    const totalMarketCap = prices.reduce((sum, price) => sum + (price.marketCap || 0), 0);
     const averagePrice = prices.length > 0 ? 
       prices.reduce((sum, price) => sum + price.price, 0) / prices.length : 0;
     
-    const gainers = prices.filter(p => p.changeAmount > 0).length;
-    const losers = prices.filter(p => p.changeAmount < 0).length;
-    const unchanged = prices.filter(p => p.changeAmount === 0).length;
+    const gainers = prices.filter(p => p.change > 0).length;
+    const losers = prices.filter(p => p.change < 0).length;
+    const unchanged = prices.filter(p => p.change === 0).length;
 
     return NextResponse.json({
       success: true,
@@ -183,12 +183,12 @@ async function handleGetMarketStats(chainId: number) {
         },
         contractsDeployed: contractConfig?.totalTokens || 0,
         topGainers: prices
-          .filter(p => p.changeAmount > 0)
-          .sort((a, b) => b.changeAmount - a.changeAmount)
+          .filter(p => p.change > 0)
+          .sort((a, b) => b.change - a.change)
           .slice(0, 5),
         topLosers: prices
-          .filter(p => p.changeAmount < 0)
-          .sort((a, b) => a.changeAmount - b.changeAmount)
+          .filter(p => p.change < 0)
+          .sort((a, b) => a.change - b.change)
           .slice(0, 5),
       },
       meta: {

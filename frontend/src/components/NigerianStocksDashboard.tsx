@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { useNigerianStocks, useMarketData, useTradingPairs } from '@/hooks/use-nigerian-stocks';
+import React from 'react';
+import { useNigerianStocks, useMarketData } from '@/hooks/use-nigerian-stocks';
 import { useHederaContracts } from '@/hooks/use-hedera-contracts';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -10,6 +10,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { TrendingUp, TrendingDown, Activity, DollarSign, BarChart3, Users, ExternalLink, Zap } from 'lucide-react';
 import LiveTradingInterface from './LiveTradingInterface';
+
+interface MarketStock {
+  symbol: string;
+  name: string;
+  price: string;
+  change: string;
+  volume: string;
+}
 
 interface StockCardProps {
   stock: {
@@ -191,7 +199,7 @@ function TopMovers() {
         </CardHeader>
         <CardContent>
           <div className="space-y-2">
-            {marketData?.topGainers?.map((stock: any) => (
+            {marketData?.topGainers?.map((stock: MarketStock) => (
               <div key={stock.symbol} className="flex justify-between items-center">
                 <div>
                   <p className="font-medium">{stock.symbol}</p>
@@ -216,7 +224,7 @@ function TopMovers() {
         </CardHeader>
         <CardContent>
           <div className="space-y-2">
-            {marketData?.topLosers?.map((stock: any) => (
+            {marketData?.topLosers?.map((stock: MarketStock) => (
               <div key={stock.symbol} className="flex justify-between items-center">
                 <div>
                   <p className="font-medium">{stock.symbol}</p>
@@ -241,7 +249,7 @@ function TopMovers() {
         </CardHeader>
         <CardContent>
           <div className="space-y-2">
-            {marketData?.mostActive?.map((stock: any) => (
+            {marketData?.mostActive?.map((stock: MarketStock) => (
               <div key={stock.symbol} className="flex justify-between items-center">
                 <div>
                   <p className="font-medium">{stock.symbol}</p>
@@ -328,7 +336,7 @@ export default function NigerianStocksDashboard() {
 
         <TabsContent value="stocks" className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {stocksData?.stocks?.map((stock: any) => (
+            {stocksData?.stocks?.map((stock: StockCardProps['stock']) => (
               <StockCard key={stock.symbol} stock={stock} />
             ))}
           </div>

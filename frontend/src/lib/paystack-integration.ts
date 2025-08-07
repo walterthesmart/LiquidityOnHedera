@@ -1,4 +1,26 @@
-import { PaystackProps } from '@paystack/inline-js';
+// Import Paystack types only
+// The actual PaystackPop is loaded via script tag and accessed from window
+
+// Define the transaction type for the onSuccess callback
+interface PaystackTransaction {
+  reference: string;
+  status: string;
+  trans: string;
+  transaction: string;
+  trxref: string;
+  message: string;
+}
+
+// Define the Paystack configuration interface
+interface PaystackProps {
+  key: string;
+  email: string;
+  amount: number;
+  currency: string;
+  reference: string;
+  onSuccess: (transaction: PaystackTransaction) => void;
+  onCancel: () => void;
+}
 
 export interface PaymentConfig {
   email: string;
@@ -19,7 +41,7 @@ export class PaystackService {
     const paymentConfig: PaystackProps = {
       ...config,
       key: this.publicKey,
-      onSuccess: (transaction) => {
+      onSuccess: (transaction: PaystackTransaction) => {
         console.log('Payment successful:', transaction);
       },
       onCancel: () => {
@@ -28,7 +50,7 @@ export class PaystackService {
     };
 
     // Initialize Paystack payment
-    const PaystackPop = (window as any).PaystackPop;
+    const PaystackPop = (window as unknown as { PaystackPop?: { setup: (config: unknown) => { openIframe: () => void } } }).PaystackPop;
     if (PaystackPop) {
       PaystackPop.setup(paymentConfig).openIframe();
     }

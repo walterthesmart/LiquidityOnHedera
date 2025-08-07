@@ -6,7 +6,6 @@ import {
   optimism,
   arbitrum,
   base,
-  sepolia,
 } from "wagmi/chains";
 
 export const projectId =

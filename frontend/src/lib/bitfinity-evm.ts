@@ -17,7 +17,7 @@ import {
   getContractAddresses,
 } from "./bitfinity-config";
 import {
-  NigerianStockTokenFactoryABI,
+  NigerianStockFactoryABI,
   NigerianStockTokenABI,
   getFactoryAddress,
   getTokenAddress as getTokenAddressFromABI,
@@ -102,7 +102,7 @@ export class MultiNetworkEVMService {
 
       const address = await this.publicClient!.readContract({
         address: factoryAddress as Address,
-        abi: NigerianStockTokenFactoryABI,
+        abi: NigerianStockFactoryABI,
         functionName: "getTokenAddress",
         args: [symbol],
       });
@@ -154,7 +154,7 @@ export class MultiNetworkEVMService {
 
       const tokenInfo = (await this.publicClient!.readContract({
         address: factoryAddress as Address,
-        abi: NigerianStockTokenFactoryABI,
+        abi: NigerianStockFactoryABI,
         functionName: "getTokenInfo",
         args: [symbol],
       })) as readonly [Address, string, string, string, bigint, bigint, number];
@@ -191,7 +191,7 @@ export class MultiNetworkEVMService {
 
       const tokens = (await this.publicClient!.readContract({
         address: factoryAddress as Address,
-        abi: NigerianStockTokenFactoryABI,
+        abi: NigerianStockFactoryABI,
         functionName: "getAllTokens",
       })) as readonly Address[];
 
@@ -222,7 +222,11 @@ export class MultiNetworkEVMService {
    */
   getTokenAddress(symbol: string): string {
     const chainId = this.getChainId();
-    return getTokenAddressFromABI(chainId, symbol);
+    const address = getTokenAddressFromABI(chainId, symbol);
+    if (!address) {
+      throw new Error(`Token address not found for symbol: ${symbol} on chain ${chainId}`);
+    }
+    return address;
   }
 
   /**

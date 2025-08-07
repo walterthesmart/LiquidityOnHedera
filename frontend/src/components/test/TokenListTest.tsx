@@ -56,11 +56,13 @@ export function TokenListTest() {
     }
 
     setLoading(true);
-    const details: TokenInfo[] = availableTokens.map((token) => ({
-      symbol: token.symbol,
-      address: token.address,
-      status: "loading" as const,
-    }));
+    const details: TokenInfo[] = availableTokens
+      .filter((token) => token.address !== null)
+      .map((token) => ({
+        symbol: token.symbol,
+        address: token.address!,
+        status: "loading" as const,
+      }));
 
     setTokenDetails(details);
 

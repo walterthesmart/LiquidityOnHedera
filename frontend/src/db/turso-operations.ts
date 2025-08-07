@@ -34,10 +34,14 @@ export interface GetStocksArgs {
   symbol?: string;
 }
 
-interface StockPrices {
+export interface StockPrices {
   symbol: string;
   price: number;
   change: number;
+  changePercent?: number;
+  volume?: number;
+  marketCap?: number;
+  time?: string;
 }
 
 interface UpdateUserStockArgs {
@@ -409,6 +413,38 @@ export class TursoDatabase {
     } catch (err) {
       console.log("Error getting stock purchases", err);
       throw new MyError(Errors.NOT_GET_USER_TRANSACTIONS);
+    }
+  }
+
+  // Additional methods for API compatibility
+  async getAllStockPrices(): Promise<StockPrices[]> {
+    return this.getStockPricesFromDB();
+  }
+
+  async getStockPrice(symbol: string): Promise<StockPrices | null> {
+    try {
+      const result = await db
+        .select({
+          symbol: stockPrices.symbol,
+          price: stockPrices.price,
+          change: stockPrices.changeAmount,
+          changePercent: stockPrices.changePercent,
+          time: stockPrices.time,
+        })
+        .from(stockPrices)
+        .where(eq(stockPrices.symbol, symbol.toUpperCase()))
+        .orderBy(desc(stockPrices.time))
+        .limit(1);
+
+      return result.length > 0 ? {
+        ...result[0],
+        changePercent: result[0].changePercent ?? undefined,
+        volume: undefined,
+        marketCap: undefined,
+      } : null;
+    } catch (err) {
+      console.log("Error getting stock price for", symbol, err);
+      throw new MyError(Errors.NOT_GET_PRICES);
     }
   }
 }

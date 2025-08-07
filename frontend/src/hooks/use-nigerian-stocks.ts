@@ -37,7 +37,7 @@ export function useNigerianStocks() {
 }
 
 export function useStockPrice(symbol: string) {
-  const { chainId, hasContracts } = useContractConfig();
+  const { chainId } = useContractConfig();
 
   return useQuery({
     queryKey: ['stock-price', symbol, chainId],

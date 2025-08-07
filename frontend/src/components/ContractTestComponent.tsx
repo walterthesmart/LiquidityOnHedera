@@ -8,7 +8,12 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 
 export default function ContractTestComponent() {
-  const [testResults, setTestResults] = useState<any[]>([]);
+  const [testResults, setTestResults] = useState<Array<{
+    name: string;
+    status: 'success' | 'error' | 'pending';
+    message: string;
+    details?: string;
+  }>>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const runContractTests = async () => {
@@ -21,17 +26,17 @@ export default function ContractTestComponent() {
     try {
       const isDeployed = hederaContractService.isFullyDeployed();
       results.push({
-        test: 'Deployment Status Check',
-        status: 'success',
-        result: `Fully deployed: ${isDeployed}`,
+        name: 'Deployment Status Check',
+        status: 'success' as const,
+        message: `Fully deployed: ${isDeployed}`,
         details: isDeployed ? 'All contracts are deployed' : 'Some contracts missing'
       });
     } catch (error) {
       results.push({
-        test: 'Deployment Status Check',
-        status: 'error',
-        result: 'Failed',
-        details: error.message
+        name: 'Deployment Status Check',
+        status: 'error' as const,
+        message: 'Failed',
+        details: error instanceof Error ? error.message : String(error)
       });
     }
 
@@ -39,17 +44,17 @@ export default function ContractTestComponent() {
     try {
       const stocks = hederaContractService.getAvailableStocks();
       results.push({
-        test: 'Available Stocks',
-        status: 'success',
-        result: `${stocks.length} stocks available`,
+        name: 'Available Stocks',
+        status: 'success' as const,
+        message: `${stocks.length} stocks available`,
         details: stocks.join(', ')
       });
     } catch (error) {
       results.push({
-        test: 'Available Stocks',
-        status: 'error',
-        result: 'Failed',
-        details: error.message
+        name: 'Available Stocks',
+        status: 'error' as const,
+        message: 'Failed',
+        details: error instanceof Error ? error.message : String(error)
       });
     }
 
@@ -57,17 +62,17 @@ export default function ContractTestComponent() {
     try {
       const contractsInfo = hederaContractService.getDeployedContracts();
       results.push({
-        test: 'Contracts Info',
-        status: 'success',
-        result: `Network: ${contractsInfo.network}`,
+        name: 'Contracts Info',
+        status: 'success' as const,
+        message: `Network: ${contractsInfo.network}`,
         details: `Last updated: ${contractsInfo.lastUpdated}`
       });
     } catch (error) {
       results.push({
-        test: 'Contracts Info',
-        status: 'error',
-        result: 'Failed',
-        details: error.message
+        name: 'Contracts Info',
+        status: 'error' as const,
+        message: 'Failed',
+        details: error instanceof Error ? error.message : String(error)
       });
     }
 
@@ -75,17 +80,17 @@ export default function ContractTestComponent() {
     try {
       const ngnContract = hederaContractService.getNGNStablecoin();
       results.push({
-        test: 'NGN Contract Instance',
-        status: 'success',
-        result: 'Contract instance created',
+        name: 'NGN Contract Instance',
+        status: 'success' as const,
+        message: 'Contract instance created',
         details: `Address: ${await ngnContract.getAddress()}`
       });
     } catch (error) {
       results.push({
-        test: 'NGN Contract Instance',
-        status: 'error',
-        result: 'Failed',
-        details: error.message
+        name: 'NGN Contract Instance',
+        status: 'error' as const,
+        message: 'Failed',
+        details: error instanceof Error ? error.message : String(error)
       });
     }
 
@@ -93,17 +98,17 @@ export default function ContractTestComponent() {
     try {
       const stockContract = hederaContractService.getStockToken('DANGCEM');
       results.push({
-        test: 'Stock Contract Instance (DANGCEM)',
-        status: 'success',
-        result: 'Contract instance created',
+        name: 'Stock Contract Instance (DANGCEM)',
+        status: 'success' as const,
+        message: 'Contract instance created',
         details: `Address: ${await stockContract.getAddress()}`
       });
     } catch (error) {
       results.push({
-        test: 'Stock Contract Instance (DANGCEM)',
-        status: 'error',
-        result: 'Failed',
-        details: error.message
+        name: 'Stock Contract Instance (DANGCEM)',
+        status: 'error' as const,
+        message: 'Failed',
+        details: error instanceof Error ? error.message : String(error)
       });
     }
 
@@ -149,9 +154,9 @@ export default function ContractTestComponent() {
                     )}
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
-                        <span className="font-medium">{result.test}</span>
+                        <span className="font-medium">{result.name}</span>
                         <span className={`text-sm ${result.status === 'success' ? 'text-green-600' : 'text-red-600'}`}>
-                          {result.result}
+                          {result.message}
                         </span>
                       </div>
                       <AlertDescription className="mt-1">

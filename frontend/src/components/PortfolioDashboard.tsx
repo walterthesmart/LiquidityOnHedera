@@ -96,7 +96,7 @@ export default function PortfolioDashboard() {
             <Badge variant="outline">
               {contracts.userAddress?.slice(0, 6)}...{contracts.userAddress?.slice(-4)}
             </Badge>
-            <Button size="sm" variant="outline" onClick={refetch}>
+            <Button size="sm" variant="outline" onClick={() => refetch()}>
               <RefreshCw className="h-4 w-4" />
             </Button>
           </div>
@@ -202,7 +202,7 @@ export default function PortfolioDashboard() {
           <CardHeader>
             <CardTitle>No Holdings</CardTitle>
             <CardDescription>
-              You don't have any stock holdings yet
+              You don&apos;t have any stock holdings yet
             </CardDescription>
           </CardHeader>
           <CardContent>

@@ -1,6 +1,57 @@
 import { ethers } from 'ethers';
 import contractsConfig from '../config/hedera-contracts.json';
 
+// Type definitions for the contracts config
+export interface TokenConfig {
+  address: string;
+  contractId: string;
+  name: string;
+  symbol: string;
+  companyName: string;
+  maxSupply: string;
+  sector: string;
+  description: string;
+  status: string;
+}
+
+interface ContractsConfig {
+  network: string;
+  lastUpdated: string;
+  deploymentStatus: string;
+  contracts: {
+    NGNStablecoin: {
+      address: string;
+      contractId: string;
+      name: string;
+      symbol: string;
+      decimals: number;
+      status: string;
+    };
+    NigerianStockFactory: {
+      address: string;
+      contractId: string;
+      name: string;
+      status: string;
+    };
+    StockNGNDEX: {
+      address: string;
+      contractId: string;
+      name: string;
+      status: string;
+    };
+    TradingPairManager: {
+      address: string;
+      contractId: string;
+      name: string;
+      status: string;
+    };
+  };
+  stockTokens: Record<string, TokenConfig>;
+}
+
+// Type assertion for the imported config
+const typedContractsConfig = contractsConfig as ContractsConfig;
+
 // Import ABIs
 import NGNStablecoinABI from '../abis/NGNStablecoin.json';
 import NigerianStockTokenABI from '../abis/NigerianStockToken.json';
@@ -25,7 +76,7 @@ export class HederaContractService {
   }
 
   // Initialize with wallet connection
-  async connect(walletProvider?: any) {
+  async connect(walletProvider?: ethers.Eip1193Provider) {
     if (walletProvider) {
       const ethersProvider = new ethers.BrowserProvider(walletProvider);
       this.signer = await ethersProvider.getSigner();
@@ -48,7 +99,7 @@ export class HederaContractService {
   }
 
   getStockToken(symbol: string) {
-    const tokenConfig = contractsConfig.stockTokens?.[symbol];
+    const tokenConfig = typedContractsConfig.stockTokens?.[symbol];
     if (!tokenConfig?.address) {
       throw new Error(`Stock token ${symbol} not found or not deployed`);
     }
@@ -148,7 +199,7 @@ export class HederaContractService {
         totalSupply: ethers.formatEther(totalSupply),
         maxSupply: ethers.formatEther(maxSupply),
         companyName,
-        address: contractsConfig.stockTokens[symbol].address
+        address: typedContractsConfig.stockTokens[symbol].address
       };
     } catch (error) {
       console.error(`Error getting ${symbol} info:`, error);
@@ -159,10 +210,11 @@ export class HederaContractService {
   // DEX operations
   async getStockPrice(stockSymbol: string): Promise<string> {
     try {
-      const dex = this.getStockNGNDEX();
-      const stockAddress = contractsConfig.stockTokens[stockSymbol].address;
-      const ngnAddress = contractsConfig.contracts.NGNStablecoin.address;
-      
+      // TODO: Implement actual price fetching from DEX
+      // const dex = this.getStockNGNDEX();
+      // const stockAddress = contractsConfig.stockTokens[stockSymbol].address;
+      // const ngnAddress = contractsConfig.contracts.NGNStablecoin.address;
+
       // Get price from DEX (this would depend on your DEX implementation)
       // For now, return a mock price
       return '100.00';
@@ -181,7 +233,7 @@ export class HederaContractService {
       if (!this.signer) throw new Error('Wallet not connected');
       
       const dex = this.getStockNGNDEX();
-      const stockAddress = contractsConfig.stockTokens[stockSymbol].address;
+      const stockAddress = typedContractsConfig.stockTokens[stockSymbol].address;
       
       const tx = await dex.swapNGNForStock(
         stockAddress,
@@ -205,7 +257,7 @@ export class HederaContractService {
       if (!this.signer) throw new Error('Wallet not connected');
       
       const dex = this.getStockNGNDEX();
-      const stockAddress = contractsConfig.stockTokens[stockSymbol].address;
+      const stockAddress = typedContractsConfig.stockTokens[stockSymbol].address;
       
       const tx = await dex.swapStockForNGN(
         stockAddress,
@@ -256,12 +308,12 @@ export class HederaContractService {
 
   // Get all available stock symbols
   getAvailableStocks(): string[] {
-    return Object.keys(contractsConfig.stockTokens);
+    return Object.keys(typedContractsConfig.stockTokens);
   }
 
   // Get stock token config
   getStockConfig(symbol: string) {
-    return contractsConfig.stockTokens[symbol];
+    return typedContractsConfig.stockTokens[symbol];
   }
 }
 

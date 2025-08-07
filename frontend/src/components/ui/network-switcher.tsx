@@ -3,7 +3,6 @@
 import React from 'react';
 import { useAccount, useChainId, useSwitchChain } from 'wagmi';
 import { hederaTestnet, hederaMainnet, bitfinityTestnet, bitfinityMainnet } from '@/config';
-import { SUPPORTED_NETWORKS } from '@/config/networks';
 import { getContractConfig } from '@/config/contracts';
 import { Button } from '@/components/ui/button';
 import {
@@ -45,9 +44,9 @@ export function NetworkSwitcher() {
   const hasContracts = contractConfig && contractConfig.totalTokens > 0;
 
   // Default to Hedera Testnet if not connected or on unsupported network
-  const currentChainId = isConnected && SUPPORTED_CHAIN_IDS.includes(chainId) ? chainId : hederaTestnet.id;
-  const currentChainName = CHAIN_NAMES[currentChainId] || 'Unknown Network';
-  const currentChainIcon = CHAIN_ICONS[currentChainId] || '❓';
+  const currentChainId = isConnected && SUPPORTED_CHAIN_IDS.includes(chainId as typeof SUPPORTED_CHAIN_IDS[number]) ? chainId : hederaTestnet.id;
+  const currentChainName = CHAIN_NAMES[currentChainId as keyof typeof CHAIN_NAMES] || 'Unknown Network';
+  const currentChainIcon = CHAIN_ICONS[currentChainId as keyof typeof CHAIN_ICONS] || '❓';
 
   const handleNetworkSwitch = async (targetChainId: number) => {
     if (targetChainId === chainId) return;

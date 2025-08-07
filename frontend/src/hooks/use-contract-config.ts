@@ -1,5 +1,4 @@
 import { useChainId, useAccount } from 'wagmi';
-import { sepolia } from 'wagmi/chains';
 import { getContractConfig, getTokenAddress, getAvailableTokens, PRIMARY_CHAIN_ID } from '@/config/contracts';
 
 export function useContractConfig() {

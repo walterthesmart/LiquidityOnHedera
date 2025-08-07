@@ -271,7 +271,7 @@ export default function DeploymentStatus() {
                 <h4 className="font-medium mb-2 text-green-800">After Deployment</h4>
                 <p className="text-sm text-green-700">
                   Once deployed, the contract addresses will be automatically updated in the frontend configuration,
-                  and you'll be able to interact with live contracts on Hedera Testnet.
+                  and you&apos;ll be able to interact with live contracts on Hedera Testnet.
                 </p>
               </div>
             </div>

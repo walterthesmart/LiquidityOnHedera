@@ -81,7 +81,7 @@ export const SendReceiveTokens: React.FC = () => {
   const [addressCopied, setAddressCopied] = useState(false);
 
   // Get contract addresses for current network
-  const contractAddresses = chainId ? CONTRACT_ADDRESSES[chainId as keyof typeof CONTRACT_ADDRESSES] : null;
+  const contractAddresses = CONTRACT_ADDRESSES;
 
   // Copy address to clipboard
   const copyAddress = useCallback(async () => {
@@ -144,7 +144,7 @@ export const SendReceiveTokens: React.FC = () => {
       if (selectedToken === "NGN") {
         // Send NGN Stablecoin
         txHash = await writeContractAsync({
-          address: contractAddresses.ngnStablecoin as `0x${string}`,
+          address: contractAddresses.NGN_STABLECOIN as `0x${string}`,
           abi: NGNStablecoinABI,
           functionName: "transfer",
           args: [recipientAddress as `0x${string}`, amount],

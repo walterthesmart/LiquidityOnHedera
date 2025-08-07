@@ -6,6 +6,10 @@ export interface ContractConfig {
   blockExplorer: string;
   deployedAt: string;
   totalTokens: number;
+  // Hedera-specific fields
+  ngnStablecoin?: string;
+  stockNGNDEX?: string;
+  tradingPairManager?: string;
 }
 
 export interface NetworkContracts {
