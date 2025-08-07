@@ -1,4 +1,3 @@
-
 # Liquidity - Nigerian Stock Trading Platform 🇳🇬
 
 Liquidity is a decentralized stock trading platform that allows users to trade tokenized stocks from the Nigerian Stock Exchange (NGX) across multiple blockchain networks. The platform provides a seamless experience for Nigerian investors to buy and sell blue-chip stock tokens with modern DeFi capabilities.
