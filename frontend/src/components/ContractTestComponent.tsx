@@ -31,7 +31,7 @@ export default function ContractTestComponent() {
         message: `Fully deployed: ${isDeployed}`,
         details: isDeployed ? 'All contracts are deployed' : 'Some contracts missing'
       });
-    } catch (error) {
+    } catch (error: unknown) {
       results.push({
         name: 'Deployment Status Check',
         status: 'error' as const,
@@ -49,7 +49,7 @@ export default function ContractTestComponent() {
         message: `${stocks.length} stocks available`,
         details: stocks.join(', ')
       });
-    } catch (error) {
+    } catch (error: unknown) {
       results.push({
         name: 'Available Stocks',
         status: 'error' as const,
@@ -67,7 +67,7 @@ export default function ContractTestComponent() {
         message: `Network: ${contractsInfo.network}`,
         details: `Last updated: ${contractsInfo.lastUpdated}`
       });
-    } catch (error) {
+    } catch (error: unknown) {
       results.push({
         name: 'Contracts Info',
         status: 'error' as const,
@@ -85,7 +85,7 @@ export default function ContractTestComponent() {
         message: 'Contract instance created',
         details: `Address: ${await ngnContract.getAddress()}`
       });
-    } catch (error) {
+    } catch (error: unknown) {
       results.push({
         name: 'NGN Contract Instance',
         status: 'error' as const,
@@ -103,7 +103,7 @@ export default function ContractTestComponent() {
         message: 'Contract instance created',
         details: `Address: ${await stockContract.getAddress()}`
       });
-    } catch (error) {
+    } catch (error: unknown) {
       results.push({
         name: 'Stock Contract Instance (DANGCEM)',
         status: 'error' as const,
